@@ -2,7 +2,7 @@
 title: Custom Icon Dialog Sitecore Speak
 author: Wesley Lomax
 type: post
-date: 2015-08-26T14:49:11+00:00
+date: 2015-08-26T14:49:11.000Z
 draft: true
 url: /?p=55
 categories:

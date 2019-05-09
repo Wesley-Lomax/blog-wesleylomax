@@ -2,7 +2,7 @@
 title: Sitecore 9.0 Initial Version Experience Profile Date Issues
 author: Wesley Lomax
 type: post
-date: 2017-11-21T16:21:05+00:00
+date: 2017-11-21T16:21:05.000Z
 url: /2017/11/21/sitecore-9-0-initial-version-experience-profile-date-issues/
 categories:
   - Sitecore

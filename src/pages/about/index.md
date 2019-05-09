@@ -2,7 +2,7 @@
 title: About
 author: Wesley Lomax
 type: page
-date: 2015-06-24T11:58:35+00:00
+date: 2015-06-24T11:58:35.000Z
 templateKey: about-page
 ---
 I am a Freelance Sitecore Architect / Consultant who has worked almost exclusively with Sitecore since 2012, this year I was honored to have been awarded [Sitecore Technology Most Valuable Professional (MVP) 2016][1].

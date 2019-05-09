@@ -2,7 +2,7 @@
 title: Continuous Delivery with Sitecore Revisited – Octopus Deploy
 author: Wesley Lomax
 type: post
-date: -001-11-30T00:00:00+00:00
+date: -001-11-30T00:00:00.000Z
 draft: true
 url: /?p=711
 categories:

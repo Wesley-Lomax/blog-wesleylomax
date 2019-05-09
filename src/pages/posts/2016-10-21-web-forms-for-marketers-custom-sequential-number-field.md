@@ -2,7 +2,7 @@
 title: Sitecore Web Forms for Marketers Custom Sequential Number Field
 author: Wesley Lomax
 type: post
-date: 2016-10-21T10:55:16+00:00
+date: 2016-10-21T10:55:16.000Z
 url: /2016/10/21/web-forms-for-marketers-custom-sequential-number-field/
 featured_image: http://blog.wesleylomax.co.uk/wp-content/uploads/2016/10/pay-937882_1920.jpg
 categories:

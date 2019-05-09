@@ -2,7 +2,7 @@
 title: Continuous Delivery with Sitecore, TDS, Git, Team City, Octopus and Sitecore Ship Part 2
 author: Wesley Lomax
 type: post
-date: 2016-04-19T13:17:08+00:00
+date: 2016-04-19T13:17:08.000Z
 url: /2016/04/19/continuous-delivery-sitecore-tds-git-team-city-octopus-sitecore-ship-part-2/
 featured_image: http://blog.wesleylomax.co.uk/wp-content/uploads/2016/04/freighter.jpg
 categories:

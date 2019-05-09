@@ -2,7 +2,7 @@
 title: Customize how field values are stored and queried in Solr with Sitecore 8
 author: Wesley Lomax
 type: post
-date: 2015-12-10T12:07:48+00:00
+date: 2015-12-10T12:07:48.000Z
 url: /2015/12/10/customize-how-field-values-are-stored-solr-sitecore-8/
 categories:
   - Search
