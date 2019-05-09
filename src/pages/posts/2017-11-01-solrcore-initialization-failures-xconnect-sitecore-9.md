@@ -12,6 +12,7 @@ tags:
   - Sitecore 9.0
   - Solr 6.6.1
   - xConnect
+templateKey: blog-post
 
 ---
 Since <a href="https://www.sitecore.net/company/press-and-media/press-releases/2017/10/new-sitecore-experience-cloud-transforms-digital-experiences" target="_blank" rel="noopener">Sitecore 9 was released a few weeks back</a>, I&#8217;ve been digging into the new release and there are lots of new things to play with. One of the most interesting new features is xConnect, a framework of rich APIs and services that allows users to integrate customer interaction data collected by Sitecore with customer data from nearly any third-party system or channel.
