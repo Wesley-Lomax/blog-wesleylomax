@@ -2,6 +2,8 @@
 title: Sitecore 9.0 Initial Version Experience Profile Date Issues
 author: Wesley Lomax
 type: post
+featuredpost: false
+featuredimage: /img/chemex.jpg
 date: 2017-11-21T16:21:05.000Z
 url: /2017/11/21/sitecore-9-0-initial-version-experience-profile-date-issues/
 categories:

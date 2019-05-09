@@ -2,6 +2,8 @@
 title: Continuous Delivery with Sitecore Revisited – Team City
 author: Wesley Lomax
 type: post
+featuredpost: false
+featuredimage: /img/chemex.jpg
 date: 2017-10-12T19:00:41.000Z
 url: /2017/10/12/continuous-delivery-with-sitecore-revisited-team-city/
 categories:

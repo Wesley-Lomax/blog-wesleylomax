@@ -2,6 +2,7 @@
 title: Sitecore 8 Ajax Controller Blocking
 author: Wesley Lomax
 type: post
+featuredpost: false
 date: 2015-10-08T08:25:06.000Z
 url: /2015/10/08/sitecore-8-ajax-controller-blocking/
 categories:

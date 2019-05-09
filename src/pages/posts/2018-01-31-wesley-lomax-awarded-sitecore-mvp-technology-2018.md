@@ -2,6 +2,8 @@
 title: Sitecore MVP Technology 2018
 author: Wesley Lomax
 type: post
+featuredpost: false
+featuredimage: /img/chemex.jpg
 date: 2018-01-31T14:55:17.000Z
 url: /2018/01/31/wesley-lomax-awarded-sitecore-mvp-technology-2018/
 categories:

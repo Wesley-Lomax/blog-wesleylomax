@@ -2,6 +2,8 @@
 title: Sitecore Lucene Exception – Unable to create document builder
 author: Wesley Lomax
 type: post
+featuredpost: false
+featuredimage: /img/chemex.jpg
 date: 2015-02-20T12:15:00.000Z
 url: /2015/02/20/sitecore-7-1-unable-to-create-document-builder-please-check-your-configuration/
 categories:

@@ -2,6 +2,7 @@
 title: Sitecore Technology MVP 2017
 author: Wesley Lomax
 type: post
+featuredpost: false
 date: 2017-02-08T16:08:05.000Z
 url: /2017/02/08/sitecore-technology-mvp-2017/
 categories:

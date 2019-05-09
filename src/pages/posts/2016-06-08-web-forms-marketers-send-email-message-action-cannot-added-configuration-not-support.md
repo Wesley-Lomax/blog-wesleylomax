@@ -2,6 +2,7 @@
 title: Sitecore Web Forms for Marketers Send Email Message – This action cannot be added. Your configuration does not support it.
 author: Wesley Lomax
 type: post
+featuredpost: false
 date: 2016-06-08T15:18:53.000Z
 url: /2016/06/08/web-forms-marketers-send-email-message-action-cannot-added-configuration-not-support/
 categories:

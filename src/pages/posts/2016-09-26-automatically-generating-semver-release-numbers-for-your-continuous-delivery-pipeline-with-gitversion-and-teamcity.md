@@ -2,6 +2,7 @@
 title: Automatically generating SemVer release numbers for your Continuous Delivery Pipeline with GitVersion and TeamCity
 author: Wesley Lomax
 type: post
+featuredpost: false
 date: 2016-09-26T12:58:35.000Z
 url: /2016/09/26/automatically-generating-semver-release-numbers-for-your-continuous-delivery-pipeline-with-gitversion-and-teamcity/
 categories:

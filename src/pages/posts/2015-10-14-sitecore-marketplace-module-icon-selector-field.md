@@ -2,6 +2,7 @@
 title: Sitecore Marketplace Module – Icon Selector Field
 author: Wesley Lomax
 type: post
+featuredpost: false
 date: 2015-10-14T09:40:18.000Z
 url: /2015/10/14/sitecore-marketplace-module-icon-selector-field/
 categories:

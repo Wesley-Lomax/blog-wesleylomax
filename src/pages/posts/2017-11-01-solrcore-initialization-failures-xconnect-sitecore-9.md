@@ -2,6 +2,8 @@
 title: SolrCore Initialization Failures – xConnect Sitecore 9
 author: Wesley Lomax
 type: post
+featuredpost: false
+featuredimage: /img/chemex.jpg
 date: 2017-11-01T16:06:46.000Z
 url: /2017/11/01/solrcore-initialization-failures-xconnect-sitecore-9/
 categories:

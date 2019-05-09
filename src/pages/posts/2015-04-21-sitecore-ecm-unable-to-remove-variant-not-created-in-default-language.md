@@ -2,6 +2,8 @@
 title: Sitecore ECM Unable to remove variant not created in default language
 author: Wesley Lomax
 type: post
+featuredpost: false
+featuredimage: /img/chemex.jpg
 date: 2015-04-21T14:27:28.000Z
 url: /2015/04/21/sitecore-ecm-unable-to-remove-variant-not-created-in-default-language/
 categories:

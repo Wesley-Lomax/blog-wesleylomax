@@ -2,6 +2,8 @@
 title: Using Glass Mapper with Solr Sitecore 8
 author: Wesley Lomax
 type: post
+featuredpost: false
+featuredimage: /img/chemex.jpg
 date: 2015-07-31T11:35:50.000Z
 url: /2015/07/31/using-glass-mapper-with-solr-sitecore-8/
 categories:

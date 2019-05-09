@@ -2,6 +2,8 @@
 title: Cardiff Sitecore Technical User Group – August 2017
 author: Wesley Lomax
 type: post
+featuredpost: false
+featuredimage: /img/chemex.jpg
 date: 2017-08-07T11:55:55.000Z
 url: /2017/08/07/cardiff-sitecore-technical-user-group-august-2017/
 categories:

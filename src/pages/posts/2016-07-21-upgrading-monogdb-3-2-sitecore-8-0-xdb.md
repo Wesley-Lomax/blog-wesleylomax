@@ -2,6 +2,7 @@
 title: Upgrading to MonogDB 3.2 for Sitecore 8.0 xDB
 author: Wesley Lomax
 type: post
+featuredpost: false
 date: 2016-07-21T14:52:17.000Z
 url: /2016/07/21/upgrading-monogdb-3-2-sitecore-8-0-xdb/
 categories:
