@@ -10,7 +10,7 @@ categories:
 tags:
   - MVP
   - Sitecore
-
+templateKey: blog-post
 ---
 Sitecore recently  <a href="http://www.sitecore.net/learn/blogs/best-practice-blogs/pieter-brinkman/posts/2016/02/announcing-2016-sitecore-mvp-awards.aspx" target="_blank">announced</a> their MVP award&#8217;s for 2016, awarding 221 people MVP status across the community.
 

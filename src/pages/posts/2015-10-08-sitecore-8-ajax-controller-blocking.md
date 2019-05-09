@@ -14,7 +14,7 @@ tags:
   - Session
   - Session State
   - Sitecore 8 Update 3
-
+templateKey: blog-post
 ---
 Ran in to an interesting problem recently in my current project, we are using the
   

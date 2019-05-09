@@ -14,7 +14,7 @@ tags:
   - Octopus Deploy
   - PowerShell
   - Sitecore
-
+templateKey: blog-post
 ---
 When using Octopus Deploy to deploy Sitecore solutions that are scaled i.e. have one or more Content Delivery or Content Management servers, there are configuration changes that need to be made for each role. For example a Content Delivery server does not require a connection string for the master database or setting out of process session state for Content Delivery servers.
 

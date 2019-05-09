@@ -13,7 +13,7 @@ tags:
   - CMS
   - Sitecore
   - Tree List Macro
-
+templateKey: blog-post
 ---
 Ever wanted to allow your editors to select multiple items in a Rules Engine Condition? You are in luck Sitecore has a TreeList Macro you can use.
 

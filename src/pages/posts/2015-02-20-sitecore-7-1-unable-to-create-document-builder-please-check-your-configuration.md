@@ -12,6 +12,7 @@ tags:
   - '7.1'
   - Lucene
   - Sitecore
+templateKey: blog-post
 
 ---
 Ran it to an Error message today flooding a Sitecore 7.1 instance log files with thousands of

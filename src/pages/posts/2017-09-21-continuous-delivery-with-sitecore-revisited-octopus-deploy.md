@@ -11,7 +11,7 @@ categories:
 tags:
   - Octopus Deploy
   - PowerShell
-
+templateKey: blog-post
 ---
 Following on from the steps we use for Continuous Delivery on Team City ADD LINK in this post I will explain the steps we use in Octopus deploy.
 

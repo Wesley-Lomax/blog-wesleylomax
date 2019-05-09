@@ -8,10 +8,10 @@ categories:
   - Azure
   - Sitecore
 tags:
-  - 8.2.5
+  - '8.2.5'
   - ARM
   - Azure
-
+templateKey: blog-post
 ---
 I am a bit (a lot) late to the Sitecore Azure PaaS party, Sitecore has supported deployments to Azure using Web Apps since  Sitecore XP 8.2 Update-1 (rev. 161115) but have been playing around with the Quick Start templates provided by Sitecore [https://github.com/Sitecore/Sitecore-Azure-Quickstart-Templates.][1]
 

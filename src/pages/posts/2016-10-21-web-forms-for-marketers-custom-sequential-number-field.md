@@ -11,7 +11,7 @@ categories:
 tags:
   - Sitecore 8 Update 4
   - WFFM
-
+templateKey: blog-post
 ---
 I had a requirement to implement sequentially numbered WFFM form submissions to identify submissions, email address would not do as we anticipated multiple applications per email. Nothing out of the box supported this requirement so I created my own. <a href="https://twitter.com/nsgocev" target="_blank">Nikola&#8217;s</a> blog post <https://sitecorecorner.com/2015/06/30/wffm-session-aware-single-line-text-field/>  pointed me in the right direction. My example was created using WFFM version 8.0 150625 and Sitecore version 8.0 (rev. 150621).
 

@@ -14,7 +14,7 @@ tags:
   - Search
   - Sitecore
   - Solr
-
+templateKey: blog-post
 ---
 When using Solr search provider in Sitecore 8 and also using the excellent [Glass mapper][1] for Sitecore the documentation on the Glass site walks you through creating a custom search result class with property attributes for search and glass [here][2]
 

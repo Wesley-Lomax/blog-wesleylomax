@@ -15,7 +15,7 @@ tags:
   - devops
   - helix
   - publishing
-
+templateKey: blog-post
 ---
 This week the Cardiff Sitecore User Group took place and was kindly hosted and sponsored by <a href="https://www.confused.com/" target="_blank" rel="noopener">Confused.com</a>.
 

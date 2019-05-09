@@ -10,7 +10,7 @@ categories:
 tags:
   - ECM
   - Language Version
-
+templateKey: blog-post
 ---
 Unable to remove message variant using Sitecore Email Campaign Manager when variant has been not created in default language.
 

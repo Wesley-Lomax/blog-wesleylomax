@@ -10,7 +10,7 @@ categories:
 tags:
   - Email
   - WFFM
-
+templateKey: blog-post
 ---
 When trying to add a new _**Save Action**_ to a **_Web Forms for Marketers_** form and you get an alert telling you **_This action cannot be added. Your configuration does not support it._**
 

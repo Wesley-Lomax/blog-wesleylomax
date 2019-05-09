@@ -14,7 +14,7 @@ tags:
   - Sitecore 8 Update 3
   - Solr
   - Solr-5.3.1
-
+templateKey: blog-post
 ---
 The default configuration for Solr with Sitecore 8 will happily find and index all of the data in your fields using the dynamicFields defined in the schema file.
 

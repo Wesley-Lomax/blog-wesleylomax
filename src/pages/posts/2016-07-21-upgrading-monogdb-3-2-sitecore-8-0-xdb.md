@@ -13,7 +13,7 @@ tags:
   - Sitecore 8 Update 4
   - Sitecore 8.0
   - WiredTiger
-
+templateKey: blog-post
 ---
 If you are running Sitecore 8 Update 5 or less then you are likely running MongoDB 2.6 as the <a href="https://kb.sitecore.net/articles/087164" target="_blank" rel="noopener">compatibility table</a> states this is the only supported version since Sitecore XP 7.5.
 

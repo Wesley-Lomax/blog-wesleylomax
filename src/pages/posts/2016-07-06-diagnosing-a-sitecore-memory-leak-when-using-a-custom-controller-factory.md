@@ -12,7 +12,7 @@ tags:
   - '8.0'
   - '8.1'
   - dotMemory
-
+templateKey: blog-post
 ---
 <div id="toc_container" class="toc_wrap_right no_bullets">
   <p class="toc_title">

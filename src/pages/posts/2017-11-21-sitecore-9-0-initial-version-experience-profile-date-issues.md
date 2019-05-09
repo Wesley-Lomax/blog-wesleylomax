@@ -10,7 +10,7 @@ categories:
 tags:
   - Experience Profile
   - Sitecore 9.0
-
+templateKey: blog-post
 ---
 Having issues loading Experience Profile data in Sitecore Experience Platform 9.0 rev. 171002 (9.0 Initial Release)? You may be seeing these issues..
 

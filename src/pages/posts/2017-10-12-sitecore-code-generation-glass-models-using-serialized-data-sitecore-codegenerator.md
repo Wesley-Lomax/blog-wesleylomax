@@ -14,7 +14,7 @@ tags:
   - T4
   - Unicorn
   - yaml
-
+templateKey: blog-post
 ---
 I was looking for a way to automatically generate Glass Models for my Sitecore Templates that had been serialized using <a href="https://github.com/kamsar/Unicorn" target="_blank" rel="noopener">Unicorn&#8217;s </a>[Rainbow][1] YAML serialization formatter and came across this post  by Sitecore MVP <a href="https://twitter.com/knifecore" target="_blank" rel="noopener">Robin Hermanussen</a> &#8211; <a href="http://hermanussen.eu/sitecore/wordpress/2015/04/generating-sitecore-code-without-tds/" target="_blank" rel="noopener">http://hermanussen.eu/sitecore/wordpress/2015/04/generating-sitecore-code-without-tds</a>
 

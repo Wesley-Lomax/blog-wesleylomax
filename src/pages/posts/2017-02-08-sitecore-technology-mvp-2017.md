@@ -8,11 +8,11 @@ categories:
   - MVP
   - Sitecore
 tags:
-  - '2017'
+  - 2017
   - MVP
   - Sitecore
   - Technology
-
+templateKey: blog-post
 ---
 Sitecore recently <a href="http://www.sitecore.net/en/company/blog/521/announcing-the-2017-sitecore-mvp-awards-4423" target="_blank">announced </a>their MVP award&#8217;s for 2017  and I have again been awarded the **<span lang="EN-US">Sitecore Most Valuable Professional Technologist Award, </span>**<span lang="EN-US">one of only 215 Technologist awarded</span><span lang="EN-US"> worldwide. This year, Sitecore has designated 215 Technology MVPs, 39 Digital Strategist MVPs, 18 Commerce MVPs, and 10 Cloud MVPs representing 29 countries and more than 140 companies.</span>
 

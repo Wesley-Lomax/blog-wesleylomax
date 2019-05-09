@@ -12,7 +12,7 @@ categories:
 tags:
   - SUGCON
   - Technical Debt
-
+templateKey: blog-post
 ---
 <div class="wp-block-cover-image has-background-dim" style="background-image: url('http://blog.wesleylomax.co.uk/wp-content/uploads/2018/08/a-developer-always-pays-thier-tech-debts_1.jpg');">
    

@@ -14,7 +14,7 @@ tags:
   - mvc
   - stats
   - support
-
+templateKey: blog-post
 ---
 My current project built with Sitecore 8 update 3 is well in to the build phase and I was starting to look at how components are performing and adding caching where applicable.
 

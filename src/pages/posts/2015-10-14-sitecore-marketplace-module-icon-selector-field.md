@@ -11,7 +11,7 @@ tags:
   - Glass
   - Marketplace
   - SPEAK
-
+templateKey: blog-post
 ---
 My First Sitecore Marketplace Module has just been released! You can check it out here <a href="https://marketplace.sitecore.net/Modules/I/Icon_Selector_Field.aspx?sc_lang=en" target="_blank">Icon Selector Field</a>.
 
