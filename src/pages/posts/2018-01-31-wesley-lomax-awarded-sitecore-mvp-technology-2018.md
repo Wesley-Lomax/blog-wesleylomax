@@ -7,6 +7,7 @@ url: /2018/01/31/wesley-lomax-awarded-sitecore-mvp-technology-2018/
 categories:
   - MVP
   - Sitecore
+templateKey: blog-post
 
 ---
 [<img class="aligncenter wp-image-793 size-full" src="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2018/01/Sitecore_MVP_logo_Technology_2018.jpg?resize=342%2C335" alt="" width="342" height="335" srcset="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2018/01/Sitecore_MVP_logo_Technology_2018.jpg?w=342 342w, https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2018/01/Sitecore_MVP_logo_Technology_2018.jpg?resize=300%2C294 300w" sizes="(max-width: 342px) 100vw, 342px" data-recalc-dims="1" />][1]
