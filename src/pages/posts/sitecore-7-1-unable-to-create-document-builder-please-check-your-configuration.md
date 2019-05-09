@@ -9,7 +9,7 @@ categories:
   - Search
   - Sitecore
 tags:
-  - 7.1
+  - '7.1'
   - Lucene
   - Sitecore
 

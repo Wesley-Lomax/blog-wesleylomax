@@ -9,7 +9,7 @@ categories:
   - Talks
 tags:
   - helix
-  - User-Group
+  - User Group
 
 ---
 Jonathan Robbins (<a href="https://twitter.com/ISlayTitans" target="_blank" rel="noopener">@ISlayTitans</a>) and I spoke at the&nbsp;Cardiff Sitecore Technical User Group &#8211; August 2017. The talk was titled&nbsp;_A developer always pays his tech debts_ and we discussed going from legacy to a Helix compliant solution, [slides are now available][1].

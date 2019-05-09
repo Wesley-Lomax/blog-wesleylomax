@@ -8,9 +8,9 @@ categories:
   - Performance
   - Sitecore
 tags:
-  - 7.5
-  - 8.0
-  - 8.1
+  - '7.5'
+  - '8.0'
+  - '8.1'
   - dotMemory
 
 ---
