@@ -8,7 +8,7 @@ categories:
   - MVP
   - Sitecore
 tags:
-  - 2017
+  - '2017'
   - MVP
   - Sitecore
   - Technology
