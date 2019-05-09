@@ -1,19 +1,19 @@
 ---
-templateKey: 'about-page'
-path: /about
-title: About our values
+title: About
+author: Wesley Lomax
+type: page
+date: 2015-06-24T11:58:35+00:00
+
 ---
-### Shade-grown coffee
-Coffee is a small tree or shrub that grows in the forest understory in its wild form, and traditionally was grown commercially under other trees that provided shade. The forest-like structure of shade coffee farms provides habitat for a great number of migratory and resident species.
+I am a Freelance Sitecore Architect / Consultant who has worked almost exclusively with Sitecore since 2012, this year I was honored to have been awarded [Sitecore Technology Most Valuable Professional (MVP) 2016][1].
 
-### Single origin
-Single-origin coffee is coffee grown within a single known geographic origin. Sometimes, this is a single farm or a specific collection of beans from a single country. The name of the coffee is then usually the place it was grown to whatever degree available.
+I&#8217;ve worked on Sitecore projects from version 6.4 through to 8.2 and have built solutions for customers across all sectors from travel to cosmetics, legal to banking and worked with some of the UK and Europe&#8217;s largest Sitecore partners.
 
-### Sustainable farming
-Sustainable agriculture is farming in sustainable ways based on an understanding of ecosystem services, the study of relationships between organisms and their environment. What grows where and how it is grown are a matter of choice and careful consideration for nature and communities.
+I have 12 years experience in the IT world and 10 years experience with .Net development. The last 5 years have been all about Web Content Management Systems mainly Sitecore and Umbraco.
 
-### Direct sourcing
-Direct trade is a form of sourcing practiced by some coffee roasters. Advocates of direct trade practices promote direct communication and price negotiation between buyer and farmer, along with systems that encourage and incentivize quality.
+I am a Sitecore, Umbraco and Microsoft Certified Professional Developer and will be using this blog to share my thoughts and findings from my day to day experience in the software development world.
 
-### Reinvest profits
-We want to truly empower the communities that bring amazing coffee to you. That’s why we reinvest 20% of our profits into farms, local businesses and schools everywhere our coffee is grown. You can see the communities grow and learn more about coffee farming on our blog.
+Connect with me on <a href="https://uk.linkedin.com/in/wglomax" target="_blank">LinkedIn </a>, follow me on <a href="https://twitter.com/WesleyLomax" target="_blank">Twitter</a>, or get in touch via my [contact form][2]
+
+ [1]: http://blog.wesleylomax.co.uk/2016/02/26/sitecore-technology-mvp-2016/
+ [2]: http://blog.wesleylomax.co.uk/contact/
