@@ -3,7 +3,7 @@ title: 'Cardiff  Sitecore User Group November 2018 – Deployments in the post h
 author: Wesley Lomax
 type: post
 featuredpost: false
-featuredimage: /img/chemex.jpg
+featuredimage: /img/search.png
 date: 2018-11-09T15:48:50.000Z
 url: /2018/11/09/cardiff-sitecore-user-group-november-2018-deployments-in-the-post-helix-cloud-world/
 categories:

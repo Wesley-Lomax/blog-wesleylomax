@@ -4,7 +4,7 @@ title: Using Glass Mapper with Solr Sitecore 8
 date: 2015-07-31T11:35:50.000Z
 description: Using Glass Mapper with Solr Sitecore 8
 featuredpost: false
-featuredimage: /img/chemex.jpg
+featuredimage: /img/search.png
 tags:
   - Glass
   - Search

@@ -3,7 +3,7 @@ title: Sitecore User Group Conference Europe 2018 – Paying Your Technical Debt
 author: Wesley Lomax
 type: post
 featuredpost: false
-featuredimage: /img/chemex.jpg
+featuredimage: /img/search.png
 date: 2018-08-28T10:09:02.000Z
 url: /2018/08/28/sitecore-user-group-conference-europe-2018-paying-your-technical-debts/
 featured_image: http://blog.wesleylomax.co.uk/wp-content/uploads/2018/08/Sugcon-2018.jpg

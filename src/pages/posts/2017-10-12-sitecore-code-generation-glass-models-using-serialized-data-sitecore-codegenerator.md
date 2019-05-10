@@ -3,7 +3,7 @@ title: Sitecore Code Generation of Glass Models using serialized data with Sitec
 author: Wesley Lomax
 type: post
 featuredpost: false
-featuredimage: /img/chemex.jpg
+featuredimage: /img/search.png
 date: 2017-10-12T19:23:45.000Z
 url: /2017/10/12/sitecore-code-generation-glass-models-using-serialized-data-sitecore-codegenerator/
 categories:
