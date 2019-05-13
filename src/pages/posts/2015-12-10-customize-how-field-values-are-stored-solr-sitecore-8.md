@@ -35,7 +35,7 @@ The default configuration for the Solr dynamic fields use the **text_general** 
 
 This is how the data looks in Solr when a field is processed by the **StandardTokenizerFactory**
 
-<img class="alignnone size-full wp-image-128" src="https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2015/11/Before-changes.png?resize=409%2C280" alt="Before changes" width="409" height="280" srcset="https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2015/11/Before-changes.png?w=409 409w, https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2015/11/Before-changes.png?resize=300%2C205 300w" sizes="(max-width: 409px) 100vw, 409px" data-recalc-dims="1" />
+![Before-changes](/img/Before-changes.png)
 
 But what if you do not want the field value split in to tokens? Well that&#8217;s pretty straight forward as well&#8230;
 
@@ -60,7 +60,7 @@ The key change is the use of the **KeywordTokenizerFactory** this change means 
 
 If you make changes to the schema.xml file you will need to restart your solr instance and re-index the core you have made changes to. Once this is complete you can use the schema browser for solr **_http://localhost:8080/solr/#/{your core name}/schema-browser_** and view the newly defined field to see you changes, notice the **Field Type** now shows as _**lowercase** _and the **_Index Analyzer_** and **_Query Analyzer_** have changed, use the **_Load Term Info_** button to see the changes to the values store by Solr
 
-<a href="https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2015/12/Updated-Field-Definition1.png" data-rel="lightbox-image-0" data-rl\_title="" data-rl\_caption="" title=""><img class="alignnone size-full wp-image-179" src="https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2015/12/Updated-Field-Definition1.png?resize=640%2C473" alt="Updated Field Definition" width="640" height="473" srcset="https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2015/12/Updated-Field-Definition1.png?w=971 971w, https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2015/12/Updated-Field-Definition1.png?resize=300%2C222 300w" sizes="(max-width: 640px) 100vw, 640px" data-recalc-dims="1" /></a>
+![Updated-Field-Definition1](/img/Updated-Field-Definition1.png)
 
 &nbsp;
 

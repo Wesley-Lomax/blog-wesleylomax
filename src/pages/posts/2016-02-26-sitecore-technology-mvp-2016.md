@@ -17,7 +17,7 @@ Sitecore recently  <a href="http://www.sitecore.net/learn/blogs/best-practice-b
 
 These awards were broken down as follows.
 
-<a href="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/02/mvp-categories.png" target="\_blank" rel="attachment wp-att-207" data-rel="lightbox-image-0" data-rl\_title="" data-rl_caption="" title=""><img class="alignnone wp-image-207 size-full" src="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/02/mvp-categories.png?resize=573%2C273" alt="Sitecore MVP awards 2016" width="573" height="273" srcset="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/02/mvp-categories.png?w=573 573w, https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/02/mvp-categories.png?resize=300%2C143 300w" sizes="(max-width: 573px) 100vw, 573px" data-recalc-dims="1" /></a>
+![mvp-categories](/img/mvp-categories.png)
 
 &nbsp;
 
