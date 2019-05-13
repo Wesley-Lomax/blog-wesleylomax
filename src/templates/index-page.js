@@ -8,10 +8,6 @@ import BlogRoll from '../components/BlogRoll'
 export const IndexPageTemplate = ({
   image,
   title,
-  heading,
-  subheading,
-  mainpitch,
-  description,  
 }) => (
   <div>
     <div
@@ -46,20 +42,7 @@ export const IndexPageTemplate = ({
           }}
         >
           {title}
-        </h1>
-        <h3
-          className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-          style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
-        >
-          {subheading}
-        </h3>
+        </h1>        
       </div>
     </div>
     <section className="section section--gradient">
@@ -67,32 +50,41 @@ export const IndexPageTemplate = ({
         <div className="section">
           <div className="columns">
             <div className="column is-10 is-offset-1">
-              <div className="content">
-                <div className="content">
-                  <div className="tile">
-                    <h1 className="title">{mainpitch.title}</h1>
-                  </div>
-                  <div className="tile">
-                    <h3 className="subtitle">{mainpitch.description}</h3>
-                  </div>
+              <div className="content">                <div className="content">
+                  
                 </div>
                 <div className="columns">
                   <div className="column is-12">
-                    <h3 className="has-text-weight-semibold is-size-2">
-                      {heading}
-                    </h3>
-                    <p>{description}</p>
                   </div>
                 </div>
                 <div className="column is-12">
                   <h3 className="has-text-weight-semibold is-size-2">
-                    Latest stories
+                    Latest posts
                   </h3>
                   <BlogRoll />
                   <div className="column is-12 has-text-centered">
                     <Link className="btn" to="/posts">
                       Read more
                     </Link>
+                  </div>
+                </div>
+                <div>
+                <div class="column is-12">
+                  <h1 class="widget-title">Awards</h1>			
+                    <div class="awards">
+                      <a href="//mvp.sitecore.net/" target="_blank" title="Wesley Lomax Sitecore MVP Technology 2018" rel="noopener noreferrer">
+                        <img src="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2018/01/Sitecore_MVP_logo_Technology_2018.jpg?w=170&amp;ssl=1" alt="Sitecore Technology MVP 2017" width="170" height="166"/>
+                      </a>
+                      <a href="//www.sitecore.net/mvp" target="_blank" title="Wesley Lomax Sitecore MVP Technology 2017" rel="noopener noreferrer">
+                        <img src="https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/02/Sitecore_MVP_logo_Technology_2017.png?w=170" alt="Sitecore Technology MVP 2017" width="170" height="166"/>
+                      </a>
+                      <a href="//mvp.sitecore.net/" target="_blank" title="Wesley Lomax Sitecore MVP Technology 2016" rel="noopener noreferrer">
+                        <img src="https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/09/MVP-2016-Technology-logo.png?w=640&amp;ssl=1" alt="Sitecore Technology MVP 2016" width="170" height="167"/>
+                      </a>
+                      <a href="//mvp.sitecore.net/" target="_blank" title="Wesley Lomax Sitecore MVP" rel="noopener noreferrer">
+                        <img src="https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/09/MVP-2016-General-logo.png?w=640&amp;ssl=1" alt="Sitecore MVP" width="170" height="167"/>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -106,11 +98,7 @@ export const IndexPageTemplate = ({
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  title: PropTypes.string,
-  heading: PropTypes.string,
-  subheading: PropTypes.string,
-  mainpitch: PropTypes.object,
-  description: PropTypes.string
+  title: PropTypes.string
 }
 
 const IndexPage = ({ data }) => {
@@ -120,11 +108,7 @@ const IndexPage = ({ data }) => {
     <Layout>
       <IndexPageTemplate
         image={frontmatter.image}
-        title={frontmatter.title}
-        heading={frontmatter.heading}
-        subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
-        description={frontmatter.description}        
+        title={frontmatter.title}        
       />
     </Layout>
   )
@@ -152,13 +136,6 @@ export const pageQuery = graphql`
             }
           }
         }
-        heading
-        subheading
-        mainpitch {
-          title
-          description
-        }
-        description
       }
     }
   }
