@@ -18,10 +18,14 @@ Jonathan Robbins (<a href="https://twitter.com/ISlayTitans" target="_blank" rel=
 
 &nbsp;
 
-<a href="https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/08/SitecoreUGAug.jpg" data-rel="lightbox-image-0" data-rl\_title="" data-rl\_caption="" title=""><img class="alignnone wp-image-688 size-large" src="https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/08/SitecoreUGAug.jpg?resize=640%2C480" alt="" width="640" height="480" srcset="https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/08/SitecoreUGAug.jpg?resize=1024%2C768 1024w, https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/08/SitecoreUGAug.jpg?resize=300%2C225 300w, https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/08/SitecoreUGAug.jpg?resize=768%2C576 768w, https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/08/SitecoreUGAug.jpg?w=1280 1280w, https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/08/SitecoreUGAug.jpg?w=1920 1920w" sizes="(max-width: 640px) 100vw, 640px" data-recalc-dims="1" /></a> <a href="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/08/SitecoreUGAug2.jpg" data-rel="lightbox-image-1" data-rl\_title="" data-rl\_caption="" title=""><img class="alignnone wp-image-689 size-large" src="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/08/SitecoreUGAug2.jpg?resize=640%2C480" alt="" width="640" height="480" srcset="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/08/SitecoreUGAug2.jpg?resize=1024%2C768 1024w, https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/08/SitecoreUGAug2.jpg?resize=300%2C225 300w, https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/08/SitecoreUGAug2.jpg?resize=768%2C576 768w, https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/08/SitecoreUGAug2.jpg?w=1280 1280w, https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/08/SitecoreUGAug2.jpg?w=1920 1920w" sizes="(max-width: 640px) 100vw, 640px" data-recalc-dims="1" /></a>
+![SitecoreUGAug](/img/SitecoreUGAug.jpg)
+
+&nbsp;
+
+![SitecoreUGAug2](/img/SitecoreUGAug2.jpg)
 
 &nbsp;
 
 Thanks to <a href="https://www.sequence.co.uk/" target="_blank" rel="noopener">Sequence&nbsp;</a>for hosting the User Group and&nbsp;<a href="http://www.cpsgroupuk.com/" target="_blank" rel="noopener">CPS Group</a>&nbsp;for providing the food. Some photos from the User Group are available on <a href="https://www.facebook.com/pg/SequenceAgency/photos/?tab=album&album_id=1515521738515048" target="_blank" rel="noopener">Sequences Facebook Page</a>
 
- [1]: http://blog.wesleylomax.co.uk/wp-content/uploads/2017/08/Sitecore-User-Group-Aug-2017.pdf
+ [1]: /img/Sitecore-User-Group-Aug-2017.pdf

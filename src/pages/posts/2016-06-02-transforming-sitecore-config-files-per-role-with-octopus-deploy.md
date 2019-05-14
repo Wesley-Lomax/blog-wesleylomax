@@ -25,75 +25,62 @@ Add a new config file to your solution I have added Web.CD.config.
 
 Next, unload your project, and edit the .csproj file. To fix the linking linking of the files. This is done simply by adding a DependentUpon element inside each Item. Let&#8217;s say you have this:
 
-<pre class="brush: xml; title: ; notranslate" title="">&lt;None Include="Web.CD.config" /&gt;
-</pre>
+```xml
+<None Include="Web.CD.config">
+```
 
-<p style="margin: 0in; font-family: Calibri; font-size: 11.0pt;">
-  <code></code>Update the XML to look like this :
-</p>
+Update the XML to look like this :
 
-<pre class="brush: xml; title: ; notranslate" title="">&lt;None Include="Web.CD.config" &gt;
- &lt;DependentUpon&gt;Web.config&lt;/DependentUpon&gt;
-&lt;/None&gt;
-</pre>
-
+```xml
+<None Include="Web.CD.config">
+  <DependentUpon>Web.config</DependentUpon>
+</None>
+```
 And you end up with nicely linked and stacked files
 
-<img class="alignnone wp-image-352" src="https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/05/WebCDNested.png?resize=253%2C72" alt="WebCDNested" width="253" height="72" data-recalc-dims="1" />
+![WebCDNested](/img/WebCDNested.png)
 
 The new config transform must be have **Build Action** of **Content** so it is deployed with your NuGet package.
 
-<img class="alignnone size-full wp-image-351" src="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/05/WebCDContent.png?resize=294%2C188" alt="WebCDContent" width="294" height="188" data-recalc-dims="1" />
+![WebCDContent](/img/WebCDContent.png)
 
 &nbsp;
 
 The config transform in this example is straight forward I am going to change the session state to be **_Mongo_** instead of **_InProc._**
 
-<div class="oembed-gist">
-  <noscript>
-    View the code on <a href="https://gist.github.com/Wesley-Lomax/a3b213a21e34f66048bc75a07919e9eb">Gist</a>.
-  </noscript>
-</div>
+<script src="https://gist.github.com/Wesley-Lomax/a3b213a21e34f66048bc75a07919e9eb.js"></script>
 
 With that in place and committed there are some changes to make to Octopus to use the new transform file
 
 Create your variables with the appropriate scope, here I have added a new variable called **WebConfigTransform** that will be available in Octopus and set the value to **Web.CD.Config** for servers in the Role **ContentDelivery** for environments **UAT** and **LIVE**
 
-<img class="alignnone size-full wp-image-358" src="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/05/OctopusVariables.png?resize=640%2C139" alt="Octopus Variable" width="640" height="139" srcset="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/05/OctopusVariables.png?w=681 681w, https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/05/OctopusVariables.png?resize=300%2C65 300w" sizes="(max-width: 640px) 100vw, 640px" data-recalc-dims="1" />
+![OctopusVariables](/img/OctopusVariables.png)
 
 You can also have Octopus substitute variables in your transforms with variables defined in Octopus,  its not required in this example but useful when you are transforming ConnectionStrings.config for example more on it <http://docs.octopusdeploy.com/display/OD/Substitute+Variables+in+Files>
 
-<a href="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/05/SubstitueVariablesinFiles.png" data-rel="lightbox-image-0" data-rl\_title="" data-rl\_caption="" title=""><img class="alignnone size-full wp-image-361" src="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/05/SubstitueVariablesinFiles.png?resize=640%2C117" alt="SubstitueVariablesinFiles" width="640" height="117" srcset="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/05/SubstitueVariablesinFiles.png?w=732 732w, https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/05/SubstitueVariablesinFiles.png?resize=300%2C55 300w" sizes="(max-width: 640px) 100vw, 640px" data-recalc-dims="1" /></a>
+![SubstitueVariablesinFiles](/img/SubstitueVariablesinFiles.png)
 
 &nbsp;
 
 Finally tell Octopus which transform to apply to which config file and the appropriate file will be used per role as defined.
 
-<a href="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/05/ConfigTransform.png" data-rel="lightbox-image-1" data-rl\_title="" data-rl\_caption="" title=""><img class="alignnone size-full wp-image-348" src="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/05/ConfigTransform.png?resize=640%2C218" alt="ConfigTransform" width="640" height="218" srcset="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/05/ConfigTransform.png?w=746 746w, https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/05/ConfigTransform.png?resize=300%2C102 300w" sizes="(max-width: 640px) 100vw, 640px" data-recalc-dims="1" /></a>
+![ConfigTransform](/img/ConfigTransform.png)
 
 Once you have this setup and created a new release check the output from your step with transforms and you with see Octopus switching in the appropriate transform per role.
 
 Here is the output from my package deployment step on one of the Content Delivery Servers :-
 
-<pre>Transforming 'C:\Octopus\Applications\Environment\Project\1.5.1\Web.config' using 'C:\Octopus\Applications\Environment\Project\1.5.1\Web.CD.config'.
-
-Transforming 'C:\Octopus\Applications\Environment\Project\1.5.1\App_Config\ConnectionStrings.config' using 'C:\Octopus\Applications\Environment\Project\1.5.1\App_Config\ConnectionStrings.CD.config'.</pre>
-
-#### 
-
-#### 
+<pre>Transforming 'C:\Octopus\Applications\Environment\Project\1.5.1\Web.config' 
+using 'C:\Octopus\Applications\Environment\Project\1.5.1\Web.CD.config'.
+Transforming 'C:\Octopus\Applications\Environment\Project\1.5.1\App_Config\ConnectionStrings.config' 
+using 'C:\Octopus\Applications\Environment\Project\1.5.1\App_Config\ConnectionStrings.CD.config'.
+</pre>
 
 #### Cleanup afterwards
 
 I have another step in my process to remove the transforms after they have been used so they are not left behind on the server using some PowerShell.
 
-<div class="oembed-gist">
-  <noscript>
-    View the code on <a href="https://gist.github.com/Wesley-Lomax/f46f70de5619266573237cf750c306d2">Gist</a>.
-  </noscript>
-</div>
-
-#### 
+<script src="https://gist.github.com/Wesley-Lomax/f46f70de5619266573237cf750c306d2.js"></script>
 
 #### Exclude CD transforms from local One-Click Publish Profile
 
@@ -101,18 +88,21 @@ You will also need to prevent these files being deployed during local developmen
 
 Find your projects *.pubxml file, should be in the \Properties\PublishProfiles directory  of your web project and add a new **PropertyGroup** element inside add a **ExcludeFilesFromDeployment** element and add a list of semicolon separated files to exclude.
 
-<pre class="brush: xml; title: ; notranslate" title="">&lt;PropertyGroup&gt;
-  &lt;ExcludeFilesFromDeployment&gt;Web.CD.config;$(ProjectDir)\App_Config\RewriteRules.CD.config;$(ProjectDir)\App_Config\Sitecore.CD.config;$(ProjectDir)\App_Config\ConnectionStrings.CD.config;$(ProjectDir)\App_Config\Include\Sitecore.Analytics.Tracking.CD.config&lt;/ExcludeFilesFromDeployment&gt;
-  &lt;/PropertyGroup&gt;
-</pre>
+``` xml
+<PropertyGroup>
+  <ExcludeFilesFromDeployment>
+    Web.CD.config;
+    $(ProjectDir)\App_Config\RewriteRules.CD.config;
+    $(ProjectDir)\App_Config\Sitecore.CD.config;
+    $(ProjectDir)\App_Config\ConnectionStrings.CD.config;
+    $(ProjectDir)\App_Config\Include\Sitecore.Analytics.Tracking.CD.config
+  </ExcludeFilesFromDeployment>
+</PropertyGroup>
+```
 
 Your should end up with something like this.
 
-<div class="oembed-gist">
-  <noscript>
-    View the code on <a href="https://gist.github.com/Wesley-Lomax/16d8da31883784e247337d780d6319e1">Gist</a>.
-  </noscript>
-</div>
+<script src="https://gist.github.com/Wesley-Lomax/16d8da31883784e247337d780d6319e1.js"></script>
 
 &nbsp;
 

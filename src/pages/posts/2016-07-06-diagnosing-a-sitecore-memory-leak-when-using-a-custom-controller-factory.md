@@ -17,7 +17,7 @@ templateKey: blog-post
 ---
 <div id="toc_container" class="toc_wrap_right no_bullets">
   <p class="toc_title">
-    Contents
+    Post Contents
   </p>
   
   <ul class="toc_list">
@@ -59,29 +59,29 @@ Once the Profiler is attached hit _**Get Snapshot**_
 
 When the snapshot has finished processing you will end up with something like this
 
-<img class="alignnone size-full wp-image-405" src="https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/Total-Memory-Before-Fix.png?resize=228%2C247" alt="Total Memory Before Fix" width="228" height="247" data-recalc-dims="1" />
+![Total-Memory-Before-Fix](/img/Total-Memory-Before-Fix.png)
 
 Click the snapshot and you will be taken to a screen showing lots of automatic memory profiling sections and figures.
 
 &nbsp;
 
-<a href="https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/Retained-Meory-Before-Fix.png" data-rel="lightbox-image-0" data-rl\_title="" data-rl\_caption="" title=""><img class="alignnone size-full wp-image-404" src="https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/Retained-Meory-Before-Fix.png?resize=438%2C218" alt="Retained Memory Before Fix" width="438" height="218" srcset="https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/Retained-Meory-Before-Fix.png?w=438 438w, https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/Retained-Meory-Before-Fix.png?resize=300%2C149 300w" sizes="(max-width: 438px) 100vw, 438px" data-recalc-dims="1" /></a>
+![Retained-Meory-Before-Fix](/img/Retained-Meory-Before-Fix.png)
 
 &nbsp;
 
 The breakdown of the **_Largest Retained Size_** objects has the Castle Windsor **_DefaultKernal_** namespace at the top of the list using 300MB of memory, clicking this give you the full breakdown of memory usage.
 
-<a href="https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/Castle-Default-Kernel-Memory-Useage-Before-Fix.png" target="\_blank" data-rel="lightbox-image-1" data-rl\_title="" data-rl_caption="" title=""><img class="alignnone wp-image-399 size-full" src="https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/Castle-Default-Kernel-Memory-Useage-Before-Fix.png?resize=640%2C489" alt="Castle Default Kernel Memory Useage Before Fix" width="640" height="489" srcset="https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/Castle-Default-Kernel-Memory-Useage-Before-Fix.png?w=978 978w, https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/Castle-Default-Kernel-Memory-Useage-Before-Fix.png?resize=300%2C229 300w, https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/Castle-Default-Kernel-Memory-Useage-Before-Fix.png?resize=768%2C587 768w" sizes="(max-width: 640px) 100vw, 640px" data-recalc-dims="1" /></a>
+![Castle-Default-Kernel-Memory-Useage-Before-Fix](/img/Castle-Default-Kernel-Memory-Useage-Before-Fix.png)
 
 The **_LifecycledComponentsReleasePolicy_** class is using most of the memory and in particular the **_instance2Burden_** dictionary has 17,519 entries taking up 314MB.
 
-<a href="https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/LifecycledComponents-Before-Fix.png" target="\_blank" data-rel="lightbox-image-2" data-rl\_title="" data-rl_caption="" title=""><img class="alignnone wp-image-402 size-full" src="https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/LifecycledComponents-Before-Fix.png?resize=640%2C89" alt="LifecycledComponents Before Fix" width="640" height="89" srcset="https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/LifecycledComponents-Before-Fix.png?w=966 966w, https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/LifecycledComponents-Before-Fix.png?resize=300%2C42 300w, https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/LifecycledComponents-Before-Fix.png?resize=768%2C107 768w" sizes="(max-width: 640px) 100vw, 640px" data-recalc-dims="1" /></a>
+![LifecycledComponents-Before-Fix](/img/LifecycledComponents-Before-Fix.png)
 
 &nbsp;
 
 Inspecting these entries they were lots of Controllers registered to the Castle Windsor container, with a Lifecycle of Transient but the are not being released by the custom controller factory.
 
-<img class="alignnone size-full wp-image-400" src="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/Entry-Lifestyle.png?resize=455%2C191" alt="Entry Lifestyle" width="455" height="191" srcset="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/Entry-Lifestyle.png?w=455 455w, https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/Entry-Lifestyle.png?resize=300%2C126 300w" sizes="(max-width: 455px) 100vw, 455px" data-recalc-dims="1" />
+![Entry-Lifestyle](/img/Entry-Lifestyle.png)
 
 &nbsp;
 
@@ -109,16 +109,16 @@ Once the Profiler is attached hit _**Get Snapshot**_
 
 When the snapshot has finished processing you will be able to compere the memory used side by side with your original snapshot.
 
-<img class="alignnone size-full wp-image-406" src="https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/Total-Memory-With-Fix.png?resize=233%2C263" alt="Total Memory With Fix" width="233" height="263" data-recalc-dims="1" />                    <a href="http://blog.wesleylomax.co.uk/wp-content/uploads/2016/07/Total-Memory-Before-Fix.png" data-rel="lightbox-image-3" data-rl\_title="" data-rl\_caption="" title=""><img class="alignnone size-full wp-image-405" src="https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/Total-Memory-Before-Fix.png?resize=228%2C247" alt="Total Memory Before Fix" width="228" height="247" data-recalc-dims="1" /></a>
+![Total-Memory-Before-Fix](/img/Total-Memory-Before-Fix.png)
 
 You can see around 300MB less memory is being used after adding the Sitecore fix.
 
 Drilling down in to the detail with dotMemory you can confirm CastleWindsor is now releasing the Transient life-cycled controller references.
 
-<img class="alignnone size-full wp-image-403" src="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/Retained-Meory-After-Fix.png?resize=439%2C227" alt="Retained Memory After Fix" width="439" height="227" srcset="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/Retained-Meory-After-Fix.png?w=439 439w, https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/Retained-Meory-After-Fix.png?resize=300%2C155 300w" sizes="(max-width: 439px) 100vw, 439px" data-recalc-dims="1" />
+![Total-Memory-Before-Fix](/img/Retained-Meory-After-Fix.png)
 
 &nbsp;
 
-<a href="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/Castle-Default-Kernel-Memory-Useage-After-Fix.png" target="\_blank" data-rel="lightbox-image-4" data-rl\_title="" data-rl_caption="" title=""><img class="alignnone wp-image-398 size-full" src="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/Castle-Default-Kernel-Memory-Useage-After-Fix.png?resize=640%2C485" alt="Castle Default Kernel Memory Useage After Fix" width="640" height="485" srcset="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/Castle-Default-Kernel-Memory-Useage-After-Fix.png?w=960 960w, https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/Castle-Default-Kernel-Memory-Useage-After-Fix.png?resize=300%2C228 300w, https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/Castle-Default-Kernel-Memory-Useage-After-Fix.png?resize=768%2C582 768w" sizes="(max-width: 640px) 100vw, 640px" data-recalc-dims="1" /></a>
+![Castle-Default-Kernel-Memory-Useage-After-Fix](/img/Castle-Default-Kernel-Memory-Useage-After-Fix.png)
 
-<a href="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/LifecycledComponents-After-Fix.png" target="\_blank" data-rel="lightbox-image-5" data-rl\_title="" data-rl_caption="" title=""><img class="alignnone wp-image-401 size-full" src="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/LifecycledComponents-After-Fix.png?resize=640%2C91" alt="LifecycledComponents After Fix" width="640" height="91" srcset="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/LifecycledComponents-After-Fix.png?w=947 947w, https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/LifecycledComponents-After-Fix.png?resize=300%2C42 300w, https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/LifecycledComponents-After-Fix.png?resize=768%2C109 768w" sizes="(max-width: 640px) 100vw, 640px" data-recalc-dims="1" /></a>
+![LifecycledComponents-After-Fix](/img/LifecycledComponents-After-Fix.png)

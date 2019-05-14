@@ -47,19 +47,11 @@ Changes to GlassMappedClassTemplate :-
 
 Here is the original output :-
 
-<div class="oembed-gist">
-  <noscript>
-    View the code on <a href="https://gist.github.com/Wesley-Lomax/5ccb78c6f1c61f79c356f624c495c57e">Gist</a>.
-  </noscript>
-</div>
+<script src="https://gist.github.com/Wesley-Lomax/5ccb78c6f1c61f79c356f624c495c57e.js"></script>
 
 And this is what Sitecore.CodeGenerator is outputting now with my changes:-
 
-<div class="oembed-gist">
-  <noscript>
-    View the code on <a href="https://gist.github.com/Wesley-Lomax/d10e1fd599dfb33cd75903b263fb08e2">Gist</a>.
-  </noscript>
-</div>
+<script src="https://gist.github.com/Wesley-Lomax/d10e1fd599dfb33cd75903b263fb08e2.js"></script>
 
 &nbsp;
 

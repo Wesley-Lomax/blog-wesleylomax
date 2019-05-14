@@ -34,7 +34,7 @@ We were seeing issues with MongoDB under load, requests were backing up in the a
 
 Just as there are benefits from updating the MongoDB.Driver version there are also performance benefits from upgrading to MongoDB 3.2
 
-[<img class="alignnone wp-image-424" src="https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/mongodb-30-1038x576.jpg?resize=640%2C355" alt="mongodb-30-1038x576" width="640" height="355" srcset="https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/mongodb-30-1038x576.jpg?resize=1024%2C568 1024w, https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/mongodb-30-1038x576.jpg?resize=300%2C166 300w, https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/mongodb-30-1038x576.jpg?resize=768%2C426 768w, https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/07/mongodb-30-1038x576.jpg?resize=1038%2C576 1038w" sizes="(max-width: 640px) 100vw, 640px" data-recalc-dims="1" />][1]
+![mongodb-30](/img/mongodb-30-1038x576.jpg)
 
 So if you are on Sitecore 8.0 Update 4 or less and are not ready to upgrade to a higher version of Sitecore XP you can update the driver manually and use a new version of MongoDB.
 
@@ -46,32 +46,33 @@ So if you are on Sitecore 8.0 Update 4 or less and are not ready to upgrade to a
 
   1. Update the <a href="https://www.nuget.org/packages/mongocsharpdriver/1.10.0" target="_blank" rel="noopener">Official .NET driver for MongoDB</a> to at least 1.10 using NuGet <pre class="brush: powershell; title: ; notranslate" title="">Install-Package mongocsharpdriver -Version 1.10.0</pre>
 
-  2. Add bindingRedirects for the MongoDB Driver dlls <pre class="brush: xml; title: ; notranslate" title="">&lt;configuration&gt;
- &lt;runtime&gt;
- &lt;assemblyBinding&gt;
- ...
-&lt;dependentAssembly&gt;
- &lt;assemblyIdentity name="MongoDB.Bson" publicKeyToken="f686731cfb9cc103" culture="Neutral" /&gt;&nbsp;
- &lt;bindingRedirect oldVersion="1.8.3.9" newVersion="1.10.0.62" /&gt;&nbsp;
- &lt;/dependentAssembly&gt;
- &lt;dependentAssembly&gt;
- &lt;assemblyIdentity name="MongoDB.Driver" publicKeyToken="f686731cfb9cc103" culture="Neutral" /&gt;&nbsp;
- &lt;bindingRedirect oldVersion="1.8.3.9" newVersion="1.10.0.62" /&gt;&nbsp;
- &lt;/dependentAssembly&gt;
-  ...
- &lt;/assemblyBinding&gt;
- &lt;/runtime&gt;
-&lt;/configuration&gt;
-</pre>
+  2. Add bindingRedirects for the MongoDB Driver dlls 
+  
+```xml
+  <configuration>
+    <runtime>
+      <assemblyBinding>
+      ...
+      <dependentAssembly>
+      <assemblyIdentity name="MongoDB.Bson" publicKeyToken="f686731cfb9cc103" culture="Neutral" />&nbsp;
+      <bindingRedirect oldVersion="1.8.3.9" newVersion="1.10.0.62" />&nbsp;
+      </dependentAssembly>
+      <dependentAssembly>
+      <assemblyIdentity name="MongoDB.Driver" publicKeyToken="f686731cfb9cc103" culture="Neutral" />&nbsp;
+      <bindingRedirect oldVersion="1.8.3.9" newVersion="1.10.0.62" />&nbsp;
+      </dependentAssembly>
+        ...
+    </assemblyBinding>
+  </runtime>
+</configuration>
+```
 
 ## Upgrade MongoDB Database and Data
 
   1. Install a new version of MongoDB from <a href="https://www.mongodb.com/download-center?" target="_blank" rel="noopener">here</a>
   2. Open a Administrator CMD prompt
   3. Navigate to the 2.6 MongoDB install bin directory <pre class="brush: plain; title: ; notranslate" title="">cd C:\Program Files\MongoDB 2.6 Standard\bin </pre>
-
   4. Export all the 2.6 MongoDB data to disk so we can import it to the new WiredTiger storage engine <pre class="brush: plain; title: ; notranslate" title="">mongodump --out "C:\MongoDB\export"</pre>
-
   5. Stop your MongoDB 2.6 service
   6. Create the new folder structure for the WiredTired storage engine eg _C:\MongoDb\dataWT\db_  and _C:\MongoDb\dataWT\log_ **Note  **:- <tt class="docutils literal"><span class="pre">mongod</span></tt> with WiredTiger will not start with data files created with a different storage engine.
   7. Update your MongoDB config, **_mongod.cfg_**, file with the new properties for version 3.2, <a href="https://gist.github.com/Wesley-Lomax/d3f5e543bb82ee6c933bb96a37e66f6c" target="_blank" rel="noopener">here is a config file I used</a>.
@@ -79,15 +80,13 @@ So if you are on Sitecore 8.0 Update 4 or less and are not ready to upgrade to a
   9. Open a Administrator CMD prompt
  10. Navigate to the new MongoDB install bin directory <pre class="brush: plain; title: ; notranslate" title="">cd C:\Program Files\MongoDB\Server\3.2\bin</pre>
 
- 11. Run <pre class="brush: plain; title: ; notranslate" title="">mongorestore "C:\MongoDB\export" </pre>
+ 11. Run <pre class="brush: plain; title: ; notranslate" title="">mongorestore "C:\MongoDB\export" </pre> to import the old 2.6 Mongo DB data to the new WiredTiger format.</li> </ol> 
     
-    to import the old 2.6 Mongo DB data to the new WiredTiger format.</li> </ol> 
+When I ran through the process of upgrading a production instance the size of the MongoDB data folder was reduced from 4.5GB to 560MB, we also noticed improved performance of mongoDB  meaning threads were no longer backing up on the web server.
     
-    When I ran through the process of upgrading a production instance the size of the MongoDB data folder was reduced from 4.5GB to 560MB, we also noticed improved performance of mongoDB  meaning threads were no longer backing up on the web server.
+### References
     
-    ### References
-    
-    <li style="margin: 0in; font-family: Calibri; font-size: 11.0pt;">
+   <li style="margin: 0in; font-family: Calibri; font-size: 11.0pt;">
       <a href="https://docs.mongodb.com/manual/release-notes/3.0-upgrade/" target="_blank" rel="noopener">https://docs.mongodb.com/manual/release-notes/3.0-upgrade/<br /> </a>
     </li>
     <li style="margin: 0in; font-family: Calibri; font-size: 11.0pt;">

@@ -20,7 +20,8 @@ Here is what I did :-
 
 Created a class with options to define how the field would look in Forms Designer, I have properties for which number sequence will be used, the size of padding to be applied and whether the field will be displayed.
 
-<pre class="brush: csharp; title: ; notranslate" title="">using System.ComponentModel;
+```csharp
+using System.ComponentModel;
 using System.ComponentModel.Design;
 using Sitecore.Configuration;
 using Sitecore.Data;
@@ -65,11 +66,12 @@ namespace WesleyLomax.WFFM
         }        
     }
 }
-</pre>
+```
 
 Created a custom  Field Type called **SequentialNumberField** this class will read the values of sequences being held in Sitecore, this is the type of the **SequentialNumberId** property from the **SequentialNumber** class.
 
-<pre class="brush: csharp; title: ; notranslate" title="">using System;
+```csharp
+using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Sitecore.Data;
@@ -87,9 +89,9 @@ namespace WesleyLomax.WFFM.Fields
         {
         }
 
-        public override bool IsCacheable =&gt; false;
+        public override bool IsCacheable => false;
 
-        private static Item SequentialFormNumbersRoot =&gt; StaticSettings.ContextDatabase.GetItem(SequentialFormNumbers);
+        private static Item SequentialFormNumbersRoot => StaticSettings.ContextDatabase.GetItem(SequentialFormNumbers);
 
         protected override void OnPreRender(object sender, EventArgs ev)
         {
@@ -97,13 +99,13 @@ namespace WesleyLomax.WFFM.Fields
             base.OnPreRender(sender, ev);
             Controls.Add(new Literal
             {
-                Text = string.Format("&lt;option {0} value='{1}'&gt;{1}&lt;/option&gt;", DefaultValue == EmptyValue ? "selected='selected'" : string.Empty, EmptyValue)
+                Text = string.Format("<option {0} value='{1}'>{1}</option>", DefaultValue == EmptyValue ? "selected='selected'" : string.Empty, EmptyValue)
             });
             foreach (Item child in SequentialFormNumbersRoot.Children)
                 Controls.Add(new Literal
                 {
                     Text =
-                        string.Format("&lt;option {0} value='{1}'&gt;{2}&lt;/option&gt;",
+                        string.Format("<option {0} value='{1}'>{2}</option>",
                             DefaultValue == child.Fields[FieldIDs.MetaDataListItemValue].Value ? "selected='selected'" : string.Empty,
                             child.ID.ToShortID(),
                             child.DisplayName)
@@ -111,19 +113,20 @@ namespace WesleyLomax.WFFM.Fields
         }
     }
 }
-</pre>
+```
 
 &nbsp;
 
 I have added a new folder in the WFFM Meta Data here **/sitecore/system/Modules/Web Forms for Marketers/Settings/Meta data/Sequential Form Numbers** that will hold a list of all the custom sequences in use for WFFM and their current values. The **SequentialFormNumbers** variable holds the folder ID located there so I can render the children in to Forms Designer for selection by the user, you&#8217;d need to update this GUID to you the value from your folder.
 
-<a href="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/Number-Sequences.png" data-rel="lightbox-image-0" data-rl\_title="" data-rl\_caption="" title=""><img class="alignnone size-full wp-image-508" src="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/Number-Sequences.png?resize=640%2C332" alt="number-sequences" width="640" height="332" srcset="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/Number-Sequences.png?w=1248 1248w, https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/Number-Sequences.png?resize=300%2C156 300w, https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/Number-Sequences.png?resize=768%2C399 768w, https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/Number-Sequences.png?resize=1024%2C532 1024w" sizes="(max-width: 640px) 100vw, 640px" data-recalc-dims="1" /></a>
+![Number-Sequences](/img/Number-Sequences.png)
 
 &nbsp;
 
 The final class is the **SequentialNumberField** this is the MVC Type WFFM will use to render the and populate the field.
 
-<pre class="brush: csharp; title: ; notranslate" title="">using System;
+```csharp
+using System;
 using Sitecore.Configuration;
 using Sitecore.Data;
 using Sitecore.Data.Items;
@@ -208,7 +211,7 @@ namespace WesleyLomax.WFFM.MVCModels
         }
     }
 }
-</pre>
+```
 
 Here I am reading the values from the **ParametersDictionary** set in Forms Designer and updating the field before it is rendered.  The current sequential number is read from Sitecore incremented and wrote back to the **Value** field, with padding for the value read from the **NumberPadding** property**.**
 
@@ -216,25 +219,25 @@ After all the classes are built you will need to add the Custom Field definition
 
 &nbsp;
 
-<a href="https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/SequentialNumber.png" data-rel="lightbox-image-1" data-rl\_title="" data-rl\_caption="" title=""><img class="alignnone size-full wp-image-510" src="https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/SequentialNumber.png?resize=473%2C286" alt="sequentialnumber" width="473" height="286" srcset="https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/SequentialNumber.png?w=473 473w, https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/SequentialNumber.png?resize=300%2C181 300w" sizes="(max-width: 473px) 100vw, 473px" data-recalc-dims="1" /></a>
+![SequentialNumber](/img/SequentialNumber.png)
 
 &nbsp;
 
 With all that built and configured you can now add the new **Sequential Number** Field to your  form.
 
-<a href="https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/SequentialNumber-Type-Full.png" data-rel="lightbox-image-2" data-rl\_title="" data-rl\_caption="" title=""><img class="alignnone size-full wp-image-522" src="https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/SequentialNumber-Type-Full.png?resize=640%2C37" alt="sequentialnumber-type-full" width="640" height="37" srcset="https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/SequentialNumber-Type-Full.png?w=1071 1071w, https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/SequentialNumber-Type-Full.png?resize=300%2C17 300w, https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/SequentialNumber-Type-Full.png?resize=768%2C44 768w, https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/SequentialNumber-Type-Full.png?resize=1024%2C59 1024w" sizes="(max-width: 640px) 100vw, 640px" data-recalc-dims="1" /></a>
+![SequentialNumber-Type-Full](/img/SequentialNumber-Type-Full.png)
 
 &nbsp;
 
 Once added in Forms Designer you will see three options for configuration.
 
-<img class="alignnone size-full wp-image-519" src="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/SequentialNumber-Options.png?resize=315%2C181" alt="sequentialnumber-options" width="315" height="181" srcset="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/SequentialNumber-Options.png?w=315 315w, https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/SequentialNumber-Options.png?resize=300%2C172 300w" sizes="(max-width: 315px) 100vw, 315px" data-recalc-dims="1" />
+![SequentialNumber-Options](/img/SequentialNumber-Options.png)
 
 &nbsp;
 
 A **Sequence** to chose from which is maintained in Sitecore, having multiple sequences allows multiple forms submissions to be tracked with a sequential number.
 
-<a href="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/Sequences.png" data-rel="lightbox-image-3" data-rl\_title="" data-rl\_caption="" title=""><img class="alignnone size-full wp-image-518" src="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/Sequences.png?resize=310%2C124" alt="sequences" width="310" height="124" srcset="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/Sequences.png?w=310 310w, https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/Sequences.png?resize=300%2C120 300w" sizes="(max-width: 310px) 100vw, 310px" data-recalc-dims="1" /></a>
+![Sequences](/img/Sequences.png)
 
 &nbsp;
 
@@ -248,15 +251,15 @@ Finally some examples of the new Sequential Number field in action:-
 
 Multiple fields with different sequences and padding values.
 
-<a href="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/Multiple-Sequences.png" data-rel="lightbox-image-4" data-rl\_title="" data-rl\_caption="" title=""><img class="alignnone size-full wp-image-517" src="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/Multiple-Sequences.png?resize=237%2C247" alt="multiple-sequences" width="237" height="247" data-recalc-dims="1" /></a>
+![Multiple-Sequences](/img/Multiple-Sequences.png)
 
 And the value being using in emails to the user who submitted the form.
 
-<img class="alignnone size-full wp-image-513" src="https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/AutoResponder.png?resize=314%2C227" alt="autoresponder" width="314" height="227" srcset="https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/AutoResponder.png?w=314 314w, https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/AutoResponder.png?resize=300%2C217 300w" sizes="(max-width: 314px) 100vw, 314px" data-recalc-dims="1" />
+![AutoResponder](/img/AutoResponder.png)
 
 And the team receiving it.
 
-<img class="alignnone size-full wp-image-514" src="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/Email-to-team.png?resize=288%2C213" alt="email-to-team" width="288" height="213" data-recalc-dims="1" />
+![Email-to-team](/img/Email-to-team.png)
 
 As the value is passed through to the Form Reports when viewed or exported the sequential number can be used to identify the form submitted.
 

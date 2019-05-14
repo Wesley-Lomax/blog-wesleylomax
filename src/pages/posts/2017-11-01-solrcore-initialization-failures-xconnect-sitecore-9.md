@@ -31,13 +31,13 @@ This change ended up breaking my Solr core for xDB called {siteprefix}_xdb, the 
 {siteprefix}_xdb: org.apache.solr.common.SolrException:org.apache.solr.common.SolrException: Error opening new searcher 
 Please check your logs for more information</pre>
 
-<a href="https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/11/SolrCore-Initalization-Failure.png" data-rel="lightbox-image-0" data-rl\_title="" data-rl\_caption="" title=""><img class="alignnone wp-image-758 " src="https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/11/SolrCore-Initalization-Failure.png?resize=640%2C99" alt="" width="640" height="99" srcset="https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/11/SolrCore-Initalization-Failure.png?w=1710 1710w, https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/11/SolrCore-Initalization-Failure.png?resize=300%2C46 300w, https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/11/SolrCore-Initalization-Failure.png?resize=768%2C119 768w, https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/11/SolrCore-Initalization-Failure.png?resize=1024%2C158 1024w, https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/11/SolrCore-Initalization-Failure.png?w=1280 1280w" sizes="(max-width: 640px) 100vw, 640px" data-recalc-dims="1" /></a>
+![SolrCore-Initalization-Failure](/img/SolrCore-Initalization-Failure.png)
 
 So I checked my Solr logs &#8211; <a href="https://localhost:8983/solr/#/~logging" target="_blank" rel="noopener">https://localhost:8983/solr/#/~logging</a> and found some more details on the error.
 
 &nbsp;
 
-<a href="https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/11/Unable-to-create-core.png" data-rel="lightbox-image-1" data-rl\_title="" data-rl\_caption="" title=""><img class="alignnone wp-image-760" src="https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/11/Unable-to-create-core.png?resize=640%2C49" alt="" width="640" height="49" srcset="https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/11/Unable-to-create-core.png?resize=1024%2C78 1024w, https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/11/Unable-to-create-core.png?resize=300%2C23 300w, https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/11/Unable-to-create-core.png?resize=768%2C58 768w, https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/11/Unable-to-create-core.png?w=1280 1280w" sizes="(max-width: 640px) 100vw, 640px" data-recalc-dims="1" /></a>
+![Unable-to-create-core](/img/Unable-to-create-core.png)
 
 The stack trace was
 
@@ -57,7 +57,7 @@ The stack trace was pretty explicit **_Caused by: java.nio.file.FileAlreadyExis
 
 &nbsp;
 
-<a href="https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/11/SolrCore-Write-Lock.png" data-rel="lightbox-image-2" data-rl\_title="" data-rl\_caption="" title=""><img class="alignnone size-large wp-image-759" src="https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/11/SolrCore-Write-Lock.png?resize=640%2C153" alt="" width="640" height="153" srcset="https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/11/SolrCore-Write-Lock.png?w=944 944w, https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/11/SolrCore-Write-Lock.png?resize=300%2C72 300w, https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/11/SolrCore-Write-Lock.png?resize=768%2C183 768w" sizes="(max-width: 640px) 100vw, 640px" data-recalc-dims="1" /></a>
+![SolrCore-Write-Lock](/img/SolrCore-Write-Lock.png)
 
 After some digging I found a config file I had missed out on updating for the _**Sitecore XConnect Search Indexer**_ service, the config file was here for my install
 
@@ -80,14 +80,4 @@ The last step is manaully triggering a rebuild of the xDB core via the service w
 
 &nbsp;
 
-<a href="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/11/Rebuild-Indexes.png" data-rel="lightbox-image-3" data-rl\_title="" data-rl\_caption="" title=""><img class="alignnone wp-image-757" src="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/11/Rebuild-Indexes.png?resize=640%2C81" alt="" width="640" height="81" srcset="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/11/Rebuild-Indexes.png?resize=1024%2C129 1024w, https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/11/Rebuild-Indexes.png?resize=300%2C38 300w, https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/11/Rebuild-Indexes.png?resize=768%2C97 768w, https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/11/Rebuild-Indexes.png?w=1280 1280w" sizes="(max-width: 640px) 100vw, 640px" data-recalc-dims="1" /></a>
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
+![Rebuild-Indexes](/img/Rebuild-Indexes.png)

@@ -116,7 +116,7 @@ Here I have used Git adding the project Url, branch and credentials.
 
 ###3. Build the Solution and Run OctoPack
   
-  ![BuildSolution](/img/BuildSolution.png)
+![BuildSolution](/img/BuildSolution.png)
 
 #### <span id="Key_Settings-3">Key Settings</span>
 
