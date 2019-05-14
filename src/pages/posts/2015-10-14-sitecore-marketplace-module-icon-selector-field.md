@@ -5,6 +5,7 @@ type: post
 featuredpost: false
 date: 2015-10-14T09:40:18.000Z
 url: /2015/10/14/sitecore-marketplace-module-icon-selector-field/
+featuredimage: /img/Icon-Speak-UI.png
 categories:
   - Marketplace
   - Sitecore

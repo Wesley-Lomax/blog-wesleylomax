@@ -5,7 +5,7 @@ type: post
 featuredpost: false
 date: 2016-06-02T14:09:37.000Z
 url: /2016/06/02/transforming-sitecore-config-files-per-role-with-octopus-deploy/
-featured_image: http://blog.wesleylomax.co.uk/wp-content/uploads/2016/06/chains-1289812_1920.jpg
+featuredimage: /img/chains-1289812_1920.jpg
 categories:
   - Continuous Delivery
   - Sitecore

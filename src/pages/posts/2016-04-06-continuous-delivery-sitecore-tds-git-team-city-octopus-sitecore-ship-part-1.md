@@ -5,7 +5,7 @@ type: post
 featuredpost: false
 date: 2016-04-06T10:03:10.000Z
 url: /2016/04/06/continuous-delivery-sitecore-tds-git-team-city-octopus-sitecore-ship-part-1/
-featured_image: /img/courier-1214227_1920.jpg
+featuredimage: /img/courier-1214227_1920.jpg
 categories:
   - Continuous Delivery
 tags:

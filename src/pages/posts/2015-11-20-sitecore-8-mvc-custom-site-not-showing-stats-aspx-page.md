@@ -5,7 +5,7 @@ type: post
 featuredpost: false
 date: 2015-11-20T13:25:27.000Z
 url: /2015/11/20/sitecore-8-mvc-custom-site-not-showing-stats-aspx-page/
-featured_image: http://blog.wesleylomax.co.uk/wp-content/uploads/2016/03/watches-1204696.jpg
+featuredimage: /img/watches-1204696.jpg
 categories:
   - Performance
   - Sitecore

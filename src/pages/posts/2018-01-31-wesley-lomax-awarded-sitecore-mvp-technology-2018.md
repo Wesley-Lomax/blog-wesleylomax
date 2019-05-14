@@ -12,7 +12,11 @@ categories:
 templateKey: blog-post
 
 ---
-[<img class="aligncenter wp-image-793 size-full" src="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2018/01/Sitecore_MVP_logo_Technology_2018.jpg?resize=342%2C335" alt="" width="342" height="335" srcset="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2018/01/Sitecore_MVP_logo_Technology_2018.jpg?w=342 342w, https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2018/01/Sitecore_MVP_logo_Technology_2018.jpg?resize=300%2C294 300w" sizes="(max-width: 342px) 100vw, 342px" data-recalc-dims="1" />][1]
+
+<a href="https://www.sitecore.com/mvp" target="_blank">
+
+![Sitecore MVP 2018](/img/Sitecore_MVP_logo_Technology_2018.jpg)
+</a>
 
 &nbsp;
 
@@ -27,5 +31,3 @@ Now it its 12th year, Sitecore’s MVP program recognizes individual technology,
 Thanks to all at Sitecore who run the MVP Program and many congratulations to all Sitecore MVP&#8217;s for 2018. The full list of 2018 MVP&#8217;s is available here &#8211; <a href="https://mvp.sitecore.net/mvps/2018" target="_blank" rel="noopener">https://mvp.sitecore.net/mvps/2018 </a>
 
 More information can be found about the MVP Program on the Sitecore MVP site: <a href="http://www.sitecore.com/mvp" target="_blank" rel="noopener">http://www.sitecore.com/mvp</a>
-
- [1]: https://www.sitecore.com/mvp

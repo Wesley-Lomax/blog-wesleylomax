@@ -4,6 +4,7 @@ author: Wesley Lomax
 type: post
 featuredpost: false
 date: 2015-10-08T08:25:06.000Z
+featuredimage: /img/Ajax-Controller-Blocking-Network-Tab.png
 categories:
   - Ajax
   - Mvc

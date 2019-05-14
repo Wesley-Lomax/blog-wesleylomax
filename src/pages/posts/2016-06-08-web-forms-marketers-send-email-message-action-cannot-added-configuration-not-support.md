@@ -3,6 +3,7 @@ title: Sitecore Web Forms for Marketers Send Email Message – This action canno
 author: Wesley Lomax
 type: post
 featuredpost: false
+featuredimage: /img/Action-cannot-be-added.png
 date: 2016-06-08T15:18:53.000Z
 url: /2016/06/08/web-forms-marketers-send-email-message-action-cannot-added-configuration-not-support/
 categories:

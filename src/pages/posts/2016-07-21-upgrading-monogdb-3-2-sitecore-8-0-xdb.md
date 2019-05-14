@@ -5,6 +5,7 @@ type: post
 featuredpost: false
 date: 2016-07-21T14:52:17.000Z
 url: /2016/07/21/upgrading-monogdb-3-2-sitecore-8-0-xdb/
+featuredimage: /img/mongodb-30-1038x576.jpg
 categories:
   - MongoDB
   - Sitecore

@@ -6,6 +6,7 @@ featuredpost: false
 featuredimage: /img/search.png
 date: 2017-10-04T11:40:08.000Z
 url: /2017/10/04/sitecore-8-2-5-azure-arm-template-gotchas/
+featuredimage: /img/DeploymentSuccess.png
 categories:
   - Azure
   - Sitecore

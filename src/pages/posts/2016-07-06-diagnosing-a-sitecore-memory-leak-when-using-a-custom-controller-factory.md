@@ -3,6 +3,7 @@ title: Diagnosing a Sitecore Memory Leak when using a Custom Controller Factory
 author: Wesley Lomax
 type: post
 featuredpost: false
+featuredimage: /img/Total-Memory-Before-Fix.png
 date: 2016-07-06T10:23:27.000Z
 url: /2016/07/06/diagnosing-a-sitecore-memory-leak-when-using-a-custom-controller-factory/
 categories:

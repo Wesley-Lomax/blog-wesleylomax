@@ -3,6 +3,7 @@ title: Sitecore Technology MVP 2016
 author: Wesley Lomax
 type: post
 featuredpost: false
+featuredimage: /img/MVP-2016-Technology-logo.png
 date: 2016-02-26T14:38:22.000Z
 url: /2016/02/26/sitecore-technology-mvp-2016/
 categories:

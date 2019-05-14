@@ -5,7 +5,7 @@ type: post
 featuredpost: false
 date: 2016-04-19T13:17:08.000Z
 url: /2016/04/19/continuous-delivery-sitecore-tds-git-team-city-octopus-sitecore-ship-part-2/
-featured_image: http://blog.wesleylomax.co.uk/wp-content/uploads/2016/04/freighter.jpg
+featuredimage: /img/freighter.jpg
 categories:
   - Continuous Delivery
 tags:

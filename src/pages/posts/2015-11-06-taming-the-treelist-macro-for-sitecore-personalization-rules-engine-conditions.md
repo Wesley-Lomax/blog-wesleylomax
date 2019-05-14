@@ -5,7 +5,7 @@ type: post
 featuredpost: false
 date: 2015-11-06T13:21:34.000Z
 url: /2015/11/06/taming-the-treelist-macro-for-sitecore-personalization-rules-engine-conditions/
-featured_image: http://blog.wesleylomax.co.uk/wp-content/uploads/2016/03/forest-584354_1280.jpg
+featuredimage: /img/forest-584354_1280.jpg
 categories:
   - Rules Engine
   - Sitecore
