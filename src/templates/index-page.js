@@ -5,6 +5,10 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import BlogRoll from '../components/BlogRoll'
 
+import MVP2016 from '../img/MVP-2016-Technology-logo-150x150.png'
+import MVP2017 from '../img/Sitecore_MVP_logo_Technology_2017-150x150.png'
+import MVP2018 from '../img/Sitecore_MVP_logo_Technology_2018-150x150.jpg'
+
 export const IndexPageTemplate = ({
   image,
   title,
@@ -73,16 +77,13 @@ export const IndexPageTemplate = ({
                   <h1 class="widget-title">Awards</h1>			
                     <div class="awards">
                       <a href="//mvp.sitecore.net/" target="_blank" title="Wesley Lomax Sitecore MVP Technology 2018" rel="noopener noreferrer">
-                        <img src="https://i0.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2018/01/Sitecore_MVP_logo_Technology_2018.jpg?w=170&amp;ssl=1" alt="Sitecore Technology MVP 2017" width="170" height="166"/>
+                        <img src={MVP2016}/>
                       </a>
                       <a href="//www.sitecore.net/mvp" target="_blank" title="Wesley Lomax Sitecore MVP Technology 2017" rel="noopener noreferrer">
-                        <img src="https://i1.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2017/02/Sitecore_MVP_logo_Technology_2017.png?w=170" alt="Sitecore Technology MVP 2017" width="170" height="166"/>
+                        <img src={MVP2017}/>
                       </a>
                       <a href="//mvp.sitecore.net/" target="_blank" title="Wesley Lomax Sitecore MVP Technology 2016" rel="noopener noreferrer">
-                        <img src="https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/09/MVP-2016-Technology-logo.png?w=640&amp;ssl=1" alt="Sitecore Technology MVP 2016" width="170" height="167"/>
-                      </a>
-                      <a href="//mvp.sitecore.net/" target="_blank" title="Wesley Lomax Sitecore MVP" rel="noopener noreferrer">
-                        <img src="https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/09/MVP-2016-General-logo.png?w=640&amp;ssl=1" alt="Sitecore MVP" width="170" height="167"/>
+                        <img src={MVP2018}/>
                       </a>
                     </div>
                   </div>
