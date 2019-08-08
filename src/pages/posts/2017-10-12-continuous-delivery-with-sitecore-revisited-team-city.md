@@ -65,7 +65,7 @@ templateKey: blog-post
 
 Last year I wrote two posts about Continuous Delivery with [Sitecore Continuous Delivery with Sitecore Part 1][1] and [Continuous Delivery with Sitecore Part 2][2]
 
-Since then I&#8217;ve tweaked the deployment process and made significant changes to the solution being deployed, we refactored to be more inline with Sitecore&#8217;s <a href="http://helix.sitecore.net/" target="_blank" rel="noopener">Helix </a>standards, <a href="https://blog.wesleylomax.co.uk/posts/2017/08/07/cardiff-sitecore-technical-user-group-august-2017/" target="_blank" rel="noopener">I gave a talk about this at the Sitecore User Group in Cardiff</a>, and changed our item serialization provider, so I wanted to share an update of how the process looks now.
+Since then I&#8217;ve tweaked the deployment process and made significant changes to the solution being deployed, we refactored to be more inline with Sitecore&#8217;s <a href="http://helix.sitecore.net/" target="_blank" rel="noopener">Helix </a>standards, <a href="https://blog.wesleylomax.co.uk/posts/2017-08-07-cardiff-sitecore-technical-user-group-august-2017/" target="_blank" rel="noopener">I gave a talk about this at the Sitecore User Group in Cardiff</a>, and changed our item serialization provider, so I wanted to share an update of how the process looks now.
 
 The deployment tools are the same so we use <a href="https://www.jetbrains.com/teamcity/" target="_blank" rel="noopener">Team City</a> for CI and building our release and <a href="https://octopus.com/" target="_blank" rel="noopener">Octopus Deploy</a> to push the releases through our environments.
 
