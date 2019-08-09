@@ -110,7 +110,7 @@ module.exports = {
                   html
                   frontmatter {
                     date
-                    path
+                    url
                   }
                 }
               }
