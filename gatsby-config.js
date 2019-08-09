@@ -7,7 +7,7 @@ module.exports = {
       'A Sitecore, Technology and .Net Blog',
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-react-helmet',    
     'gatsby-plugin-sass',
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
@@ -72,7 +72,8 @@ module.exports = {
       options: {
         trackingId: "UA-71309808-1",
       },
-    },
+    },    
+    'gatsby-plugin-feed',
     {
       resolve: 'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules
       options: {
