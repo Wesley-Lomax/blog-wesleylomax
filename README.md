@@ -1,6 +1,8 @@
 # blog.wesleylomax.co.uk
 
-Personal blog of **Wesley Lomax** — a Sitecore, technology and .NET blog.
+Personal blog of **Wesley Lomax** — on making regulated Azure platforms
+compliant and affordable (PCI DSS, Azure architecture, cloud security and cost).
+Includes the earlier Sitecore / .NET archive.
 
 Built with [Astro](https://astro.build/). Content lives as Markdown in
 `src/content/blog/` and is deployed to Netlify.
@@ -31,8 +33,8 @@ date: 2026-01-15
 description: A one-line summary used for previews and SEO.
 featuredimage: /img/some-image.png   # optional, lives in public/img
 tags:
-  - Sitecore
-  - .NET
+  - Azure
+  - PCI DSS
 ---
 ```
 
