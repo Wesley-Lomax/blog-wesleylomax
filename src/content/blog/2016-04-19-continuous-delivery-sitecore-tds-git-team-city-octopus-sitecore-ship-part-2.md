@@ -67,7 +67,7 @@ templateKey: blog-post
 
 &nbsp;
 
-In Part 2 I&#8217;ll walk through the <a href="https://octopus.com/" target="_blank">Octopus Deploy</a> configuration where we use PowerShell, <a href="https://github.com/kevinobee/Sitecore.Ship" target="_blank">Sitecore.Ship</a> and Curl to install the Team Development for Sitecore Packages and publish the changes, if you are looking for the TeamCity configuration see <a href="http://blog.wesleylomax.co.uk/2016/04/06/continuous-delivery-sitecore-tds-git-team-city-octopus-sitecore-ship-part-1/" target="_blank">Part 1</a>
+In Part 2 I&#8217;ll walk through the <a href="https://octopus.com/" target="_blank">Octopus Deploy</a> configuration where we use PowerShell, <a href="https://github.com/kevinobee/Sitecore.Ship" target="_blank">Sitecore.Ship</a> and Curl to install the Team Development for Sitecore Packages and publish the changes, if you are looking for the TeamCity configuration see <a href="/posts/2016-04-06-continuous-delivery-sitecore-tds-git-team-city-octopus-sitecore-ship-part-1/" target="_blank">Part 1</a>
 
 &nbsp;
 
@@ -154,4 +154,4 @@ Note &#8211; Each Server where you wish to execute this script will need Curl in
 
 &nbsp;
 
-With the steps from this post and <a href="http://blog.wesleylomax.co.uk/2016/04/06/continuous-delivery-sitecore-tds-git-team-city-octopus-sitecore-ship-part-1/" target="_blank">Part 1</a> you will have a build process in place that will take your code, build it, run the unit tests, create the required NuGet packages and deploy them to the appropriate server roles, install the .update package and publish the changes. Happy Deployments!
+With the steps from this post and <a href="/posts/2016-04-06-continuous-delivery-sitecore-tds-git-team-city-octopus-sitecore-ship-part-1/" target="_blank">Part 1</a> you will have a build process in place that will take your code, build it, run the unit tests, create the required NuGet packages and deploy them to the appropriate server roles, install the .update package and publish the changes. Happy Deployments!

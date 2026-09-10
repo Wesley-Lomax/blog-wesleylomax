@@ -43,7 +43,7 @@ templateKey: blog-post
   </ul>
 </div>
 
-Following on from my posts <a href="https://blog.wesleylomax.co.uk/2016/04/06/continuous-delivery-sitecore-tds-git-team-city-octopus-sitecore-ship-part-1" target="_blank">Continuous Delivery with Sitecore Part 1 – TeamCity Setup</a> and <a href="http://blog.wesleylomax.co.uk/2016/04/19/continuous-delivery-sitecore-tds-git-team-city-octopus-sitecore-ship-part-2/" target="_blank">Continuous Delivery with Sitecore Part 2 – Octopus Deploy Setup</a>, I&#8217;ve added another step to achieve _Semantic Versioning (SemVer)_ in my deployment pipeline, as we are already using <a href="http://nvie.com/posts/a-successful-git-branching-model/" target="_blank">GitFlow </a> for branching we only had some configuration changes to make.
+Following on from my posts <a href="/posts/2016-04-06-continuous-delivery-sitecore-tds-git-team-city-octopus-sitecore-ship-part-1/" target="_blank">Continuous Delivery with Sitecore Part 1 – TeamCity Setup</a> and <a href="/posts/2016-04-19-continuous-delivery-sitecore-tds-git-team-city-octopus-sitecore-ship-part-2/" target="_blank">Continuous Delivery with Sitecore Part 2 – Octopus Deploy Setup</a>, I&#8217;ve added another step to achieve _Semantic Versioning (SemVer)_ in my deployment pipeline, as we are already using <a href="http://nvie.com/posts/a-successful-git-branching-model/" target="_blank">GitFlow </a> for branching we only had some configuration changes to make.
 
 I&#8217;ve added <a href="https://github.com/GitTools/GitVersion" target="_blank">GitVersion</a> to our release process, they claim
 
