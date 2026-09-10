@@ -2,16 +2,37 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SOCIAL_LINKS } from '../consts';
 
-const awards = [
-  { src: '/img/MVP-2016-Technology-logo-150x150.png', year: '2016' },
-  { src: '/img/Sitecore_MVP_logo_Technology_2017-150x150.png', year: '2017' },
-  { src: '/img/Sitecore_MVP_logo_Technology_2018-150x150.jpg', year: '2018' },
+const pillars = [
+  {
+    title: 'Landing zones & platform architecture',
+    body: 'Structuring an Azure estate — management groups, subscriptions, networking — so it holds up as it grows.',
+  },
+  {
+    title: 'PCI DSS v4.0.1 on Azure',
+    body: 'Where regulated estates actually fail an audit, and the concrete Azure config that satisfies each control.',
+  },
+  {
+    title: 'Application Gateway, Front Door & WAF',
+    body: 'Ingress and web-security decisions — AGIC vs. dedicated controllers, and the rules that quietly change behaviour.',
+  },
+  {
+    title: 'IAM & service-principal hygiene',
+    body: 'Access control and the stale, over-permissioned identities that are a finding waiting to happen.',
+  },
+  {
+    title: 'Cloud cost & FinOps',
+    body: 'Cutting waste without deleting the controls someone put there for a reason — compliance and cost as one story.',
+  },
+  {
+    title: 'KQL & Log Analytics',
+    body: 'The queries that prove — or disprove — that any of the above is actually working.',
+  },
 ];
 ---
 
 <BaseLayout
   title="About"
-  description="About Wesley Lomax — Sitecore architect, .NET developer and Sitecore Technology MVP."
+  description="Wesley Lomax helps regulated fintech, payments and SaaS teams make their Azure platforms compliant and affordable."
 >
   <div class="container prose">
     <p class="eyebrow">About</p>
@@ -19,41 +40,60 @@ const awards = [
 
     <div class="about-body">
       <p>
-        I'm a Sitecore architect and consultant who has worked almost exclusively
-        with Sitecore since 2012, and was honoured to be awarded
-        <strong>Sitecore Technology MVP</strong> three years running.
+        This blog used to be about Sitecore and .NET. It's now about the problem
+        I actually spend my days solving: making regulated Azure platforms both
+        compliant and affordable, at the same time, without pretending those are
+        two different projects.
       </p>
       <p>
-        I've worked on Sitecore projects from version 6.4 onwards and built
-        solutions for customers across every sector — travel, cosmetics, legal and
-        banking — alongside some of the UK and Europe's largest Sitecore partners.
+        I can support teams once they've outgrown whoever originally built the
+        platform, or when nobody's confident their infrastructure would survive
+        an audit or a serious incident — access control, logging and network
+        architecture rebuilt to hold up under a QSA's questions and a security
+        review's, usually the same weak points causing both.
       </p>
       <p>
-        With more than a decade in the industry and a long stretch of .NET
-        development behind me, most of my work has centred on web content
-        management — mainly Sitecore and Umbraco. I'm a Sitecore, Umbraco and
-        Microsoft Certified Professional Developer, and I use this blog to share
-        thoughts and findings from my day-to-day in software development.
+        I've been in IT since 2002 — starting as a developer, then over a decade
+        as a freelance solution architect working with some of the world's
+        leading brands, before specialising in cloud engineering and managed
+        cloud services.
+      </p>
+      <p>
+        Most of what gets written about PCI DSS is compliance-shaped but not
+        Azure-specific, and most of what gets written about Azure cost control
+        ignores that half your "waste" is actually a control someone put there
+        for a reason. I write from the seam between the two — landing zones,
+        Application Gateway and Front Door configuration, IAM and
+        service-principal hygiene, and the KQL queries that prove (or disprove)
+        that any of it is actually working.
       </p>
       <p>
         Connect with me on
-        <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener">LinkedIn</a>,
-        find me on
-        <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener">GitHub</a>, or
-        <a href="/contact">get in touch</a>.
+        <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+        or find me on
+        <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener">GitHub</a>.
       </p>
     </div>
 
-    <h2>Awards</h2>
-    <div class="awards">
+    <h2>What I write about</h2>
+    <div class="pillars">
       {
-        awards.map((a) => (
-          <figure class="award">
-            <img src={a.src} alt={`Sitecore Technology MVP ${a.year}`} width="110" height="110" loading="lazy" />
-            <figcaption>MVP {a.year}</figcaption>
-          </figure>
+        pillars.map((p) => (
+          <div class="pillar">
+            <h3>{p.title}</h3>
+            <p>{p.body}</p>
+          </div>
         ))
       }
+    </div>
+
+    <div class="cta">
+      <p>
+        If you're a platform or engineering lead at a fintech, payments or
+        regulated SaaS company trying to get your Azure estate through an audit
+        without blowing the cloud budget doing it, this is written for you.
+      </p>
+      <a href="/contact" class="btn btn-primary">Work with me</a>
     </div>
   </div>
 </BaseLayout>
@@ -63,23 +103,36 @@ const awards = [
   .about-body { font-size: 1.1rem; line-height: 1.75; }
   .about-body p { margin: 0 0 1.3rem; }
   .about-body a { text-decoration: underline; text-underline-offset: 2px; }
-  h2 { margin-top: 2.5rem; }
-  .awards {
-    display: flex;
-    gap: 1.75rem;
-    flex-wrap: wrap;
+  h2 { margin-top: 2.75rem; }
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 1rem;
     margin-top: 1.25rem;
   }
-  .award { margin: 0; text-align: center; }
-  .award img {
-    border-radius: 12px;
+  .pillar {
     border: 1px solid var(--border);
     background: var(--bg-elevated);
+    border-radius: var(--radius-sm);
+    padding: 1.1rem 1.2rem;
+    position: relative;
+    overflow: hidden;
   }
-  .award figcaption {
-    margin-top: 0.5rem;
-    font-size: 0.85rem;
-    color: var(--text-faint);
-    font-weight: 600;
+  .pillar::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 3px;
+    background: var(--gradient);
   }
+  .pillar h3 { font-size: 1rem; margin: 0 0 0.4rem; }
+  .pillar p { margin: 0; font-size: 0.9rem; color: var(--text-muted); line-height: 1.55; }
+  .cta {
+    margin-top: 2.5rem;
+    padding: 1.75rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-subtle);
+  }
+  .cta p { margin: 0 0 1.25rem; font-size: 1.05rem; }
 </style>

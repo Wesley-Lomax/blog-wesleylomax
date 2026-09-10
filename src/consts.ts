@@ -2,7 +2,8 @@
 export const SITE_URL = 'https://blog.wesleylomax.co.uk';
 export const SITE_TITLE = 'Wesley Lomax';
 export const SITE_DESCRIPTION =
-  'A Sitecore, technology and .NET blog — notes, fixes and findings from day-to-day software development.';
+  'Making regulated Azure platforms compliant and affordable — writing on PCI DSS, Azure architecture, cloud security and cost, from the seam between compliance and FinOps.';
+export const SITE_TAGLINE = 'Regulated Azure platforms — compliant and affordable.';
 export const SITE_AUTHOR = 'Wesley Lomax';
 
 export const NAV_LINKS = [
