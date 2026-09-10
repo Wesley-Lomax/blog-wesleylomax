@@ -1,7 +1,12 @@
 [build]
-  publish = "public"
   command = "npm run build"
-  functions = "lambda"
+  publish = "dist"
+
 [build.environment]
-  YARN_VERSION = "1.9.4"
-  YARN_FLAGS = "--no-ignore-optional"
+  NODE_VERSION = "20"
+
+# Long-cache the fingerprinted Astro assets
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

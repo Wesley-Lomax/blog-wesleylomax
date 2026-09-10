@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SOCIAL_LINKS } from '../consts';
+---
+
+<BaseLayout
+  title="Contact"
+  description="Get in touch with Wesley Lomax."
+>
+  <div class="container prose">
+    <p class="eyebrow">Contact</p>
+    <h1>Say hello</h1>
+    <p class="intro">
+      Got a question, want to say hello, or think we could work together? Drop me
+      a message and I'll get back to you.
+    </p>
+
+    <!-- Netlify Forms: submissions appear in the Netlify dashboard. -->
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      class="contact-form"
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      <p class="hidden">
+        <label>Don't fill this out: <input name="bot-field" /></label>
+      </p>
+
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" type="text" name="name" required />
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email" required />
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send message</button>
+    </form>
+
+    <p class="alt">
+      Prefer elsewhere? Find me on
+      <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+      or
+      <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener">GitHub</a>.
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  h1 { margin: 0.5rem 0 1rem; }
+  .intro { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2rem; }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    max-width: 34rem;
+  }
+  .field { display: flex; flex-direction: column; gap: 0.4rem; }
+  label { font-weight: 600; font-size: 0.9rem; }
+  input,
+  textarea {
+    font: inherit;
+    padding: 0.7rem 0.85rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: var(--bg-elevated);
+    color: var(--text);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  input:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+  .contact-form .btn { align-self: flex-start; }
+  .hidden { display: none; }
+  .alt { margin-top: 2rem; color: var(--text-muted); }
+  .alt a { text-decoration: underline; text-underline-offset: 2px; }
+</style>

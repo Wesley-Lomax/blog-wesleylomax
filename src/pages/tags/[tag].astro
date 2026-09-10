@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getSortedPosts, postUrl, tagSlug, type Post } from '../../utils';
+
+export async function getStaticPaths() {
+  const posts = await getSortedPosts();
+  const groups = new Map<string, { label: string; posts: Post[] }>();
+
+  for (const post of posts) {
+    for (const tag of post.data.tags) {
+      const slug = tagSlug(tag);
+      if (!groups.has(slug)) groups.set(slug, { label: tag, posts: [] });
+      groups.get(slug)!.posts.push(post);
+    }
+  }
+
+  return [...groups.entries()].map(([slug, { label, posts }]) => ({
+    params: { tag: slug },
+    props: { label, posts },
+  }));
+}
+
+const { label, posts } = Astro.props;
+---
+
+<BaseLayout
+  title={`#${label}`}
+  description={`Posts tagged ${label}.`}
+>
+  <div class="container">
+    <header class="page-head">
+      <a href="/tags" class="back-link">← All tags</a>
+      <h1>#{label}</h1>
+      <p class="page-sub">{posts.length} {posts.length === 1 ? 'post' : 'posts'}</p>
+    </header>
+
+    <div class="grid">
+      {
+        posts.map((post) => (
+          <PostCard
+            url={postUrl(post)}
+            title={post.data.title}
+            date={post.data.date}
+            description={post.data.description}
+            featuredimage={post.data.featuredimage}
+            tags={post.data.tags}
+          />
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-head { margin-bottom: 2rem; }
+  .back-link {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+  .back-link:hover { color: var(--accent); }
+  .page-head h1 { margin: 0 0 0.4rem; }
+  .page-sub { color: var(--text-muted); margin: 0; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+</style>

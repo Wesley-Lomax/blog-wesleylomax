@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SOCIAL_LINKS } from '../consts';
+
+const awards = [
+  { src: '/img/MVP-2016-Technology-logo-150x150.png', year: '2016' },
+  { src: '/img/Sitecore_MVP_logo_Technology_2017-150x150.png', year: '2017' },
+  { src: '/img/Sitecore_MVP_logo_Technology_2018-150x150.jpg', year: '2018' },
+];
+---
+
+<BaseLayout
+  title="About"
+  description="About Wesley Lomax — Sitecore architect, .NET developer and Sitecore Technology MVP."
+>
+  <div class="container prose">
+    <p class="eyebrow">About</p>
+    <h1>Hi, I'm Wesley Lomax.</h1>
+
+    <div class="about-body">
+      <p>
+        I'm a Sitecore architect and consultant who has worked almost exclusively
+        with Sitecore since 2012, and was honoured to be awarded
+        <strong>Sitecore Technology MVP</strong> three years running.
+      </p>
+      <p>
+        I've worked on Sitecore projects from version 6.4 onwards and built
+        solutions for customers across every sector — travel, cosmetics, legal and
+        banking — alongside some of the UK and Europe's largest Sitecore partners.
+      </p>
+      <p>
+        With more than a decade in the industry and a long stretch of .NET
+        development behind me, most of my work has centred on web content
+        management — mainly Sitecore and Umbraco. I'm a Sitecore, Umbraco and
+        Microsoft Certified Professional Developer, and I use this blog to share
+        thoughts and findings from my day-to-day in software development.
+      </p>
+      <p>
+        Connect with me on
+        <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener">LinkedIn</a>,
+        find me on
+        <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener">GitHub</a>, or
+        <a href="/contact">get in touch</a>.
+      </p>
+    </div>
+
+    <h2>Awards</h2>
+    <div class="awards">
+      {
+        awards.map((a) => (
+          <figure class="award">
+            <img src={a.src} alt={`Sitecore Technology MVP ${a.year}`} width="110" height="110" loading="lazy" />
+            <figcaption>MVP {a.year}</figcaption>
+          </figure>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  h1 { margin: 0.5rem 0 1.5rem; }
+  .about-body { font-size: 1.1rem; line-height: 1.75; }
+  .about-body p { margin: 0 0 1.3rem; }
+  .about-body a { text-decoration: underline; text-underline-offset: 2px; }
+  h2 { margin-top: 2.5rem; }
+  .awards {
+    display: flex;
+    gap: 1.75rem;
+    flex-wrap: wrap;
+    margin-top: 1.25rem;
+  }
+  .award { margin: 0; text-align: center; }
+  .award img {
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--bg-elevated);
+  }
+  .award figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-faint);
+    font-weight: 600;
+  }
+</style>

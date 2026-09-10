@@ -1,0 +1,153 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { title, description, date, featuredimage, tags } = post.data;
+---
+
+<BaseLayout
+  title={title}
+  description={description ?? title}
+  image={featuredimage}
+  type="article"
+  publishedTime={date}
+>
+  <article class="container">
+    <div class="prose">
+      <a href="/posts" class="back-link">← All posts</a>
+      <header class="post-header">
+        <div class="post-meta">
+          <FormattedDate date={date} />
+          <span>·</span>
+          <span>Wesley Lomax</span>
+        </div>
+        <h1>{title}</h1>
+        {
+          tags.length > 0 && (
+            <div class="tag-row">
+              {tags.map((t) => (
+                <a class="tag" href={`/tags/${t.toLowerCase().replace(/\s+/g, '-')}`}>
+                  #{t}
+                </a>
+              ))}
+            </div>
+          )
+        }
+      </header>
+
+      {
+        featuredimage && (
+          <img class="post-hero" src={featuredimage} alt={title} />
+        )
+      }
+
+      <div class="post-content">
+        <slot />
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .back-link {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+  }
+  .back-link:hover { color: var(--accent); }
+  .post-header { margin-bottom: 1.75rem; }
+  .post-meta {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    color: var(--text-faint);
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+  }
+  .post-header h1 { margin: 0 0 1rem; }
+  .post-hero {
+    width: 100%;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    margin-bottom: 2rem;
+  }
+
+  /* ---- Markdown prose ---- */
+  .post-content {
+    font-size: 1.075rem;
+    line-height: 1.75;
+    color: var(--text);
+  }
+  .post-content :global(p) { margin: 0 0 1.3rem; }
+  .post-content :global(h2) { margin: 2.5rem 0 1rem; }
+  .post-content :global(h3) { margin: 2rem 0 0.75rem; }
+  .post-content :global(ul),
+  .post-content :global(ol) { margin: 0 0 1.3rem; padding-left: 1.4rem; }
+  .post-content :global(li) { margin-bottom: 0.4rem; }
+  .post-content :global(img) {
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    margin: 1.5rem 0;
+  }
+  .post-content :global(a) {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  }
+  .post-content :global(blockquote) {
+    margin: 1.5rem 0;
+    padding: 0.5rem 1.25rem;
+    border-left: 3px solid var(--accent);
+    background: var(--bg-subtle);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    color: var(--text-muted);
+  }
+  .post-content :global(blockquote p:last-child) { margin-bottom: 0; }
+  .post-content :global(code) {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    background: var(--code-bg);
+    padding: 0.15em 0.4em;
+    border-radius: 5px;
+    border: 1px solid var(--border);
+  }
+  .post-content :global(pre) {
+    padding: 1.1rem 1.25rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .post-content :global(pre code) {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: inherit;
+  }
+  .post-content :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+    display: block;
+    overflow-x: auto;
+  }
+  .post-content :global(th),
+  .post-content :global(td) {
+    border: 1px solid var(--border);
+    padding: 0.6rem 0.85rem;
+    text-align: left;
+  }
+  .post-content :global(th) { background: var(--bg-subtle); }
+  .post-content :global(hr) { margin: 2.5rem 0; }
+</style>
