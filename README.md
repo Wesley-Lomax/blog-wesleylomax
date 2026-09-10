@@ -1,4 +1,4 @@
-# wesleylomax.co.uk
+# www.wesleylomax.co.uk
 
 Personal blog of **Wesley Lomax** — on making regulated Azure platforms
 compliant and affordable (PCI DSS, Azure architecture, cloud security and cost).
