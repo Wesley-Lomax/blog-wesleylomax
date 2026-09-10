@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import { getSortedPosts, postUrl } from '../utils';
+import { SITE_DESCRIPTION } from '../consts';
+
+const posts = await getSortedPosts();
+const [featured, ...rest] = posts;
+const recent = rest.slice(0, 6);
+---
+
+<BaseLayout title="Wesley Lomax" description={SITE_DESCRIPTION}>
+  <section class="hero container">
+    <p class="eyebrow">Sitecore · Technology · .NET</p>
+    <h1>Notes, fixes &amp; findings from the field.</h1>
+    <p class="hero-sub">
+      I'm Wesley Lomax — a Sitecore architect and .NET developer. This is where I
+      write up the problems I hit, how I solved them, and the occasional deep dive.
+    </p>
+    <div class="hero-actions">
+      <a href="/posts" class="btn btn-primary">Browse all posts</a>
+      <a href="/about" class="btn">About me</a>
+    </div>
+  </section>
+
+  <section class="container feed">
+    <div class="feed-head">
+      <h2>Latest</h2>
+      <a href="/posts" class="feed-all">View all →</a>
+    </div>
+
+    <div class="grid">
+      {
+        featured && (
+          <PostCard
+            featured
+            url={postUrl(featured)}
+            title={featured.data.title}
+            date={featured.data.date}
+            description={featured.data.description}
+            featuredimage={featured.data.featuredimage}
+            tags={featured.data.tags}
+          />
+        )
+      }
+      {
+        recent.map((post) => (
+          <PostCard
+            url={postUrl(post)}
+            title={post.data.title}
+            date={post.data.date}
+            description={post.data.description}
+            featuredimage={post.data.featuredimage}
+            tags={post.data.tags}
+          />
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-block: 3rem 2.5rem;
+    max-width: 48rem;
+  }
+  .hero h1 {
+    margin: 0.75rem 0 1rem;
+  }
+  .hero-sub {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin: 0 0 1.75rem;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .feed { padding-top: 1rem; }
+  .feed-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1.5rem;
+  }
+  .feed-head h2 { margin: 0; }
+  .feed-all { font-weight: 600; font-size: 0.95rem; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+</style>

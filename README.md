@@ -1,54 +1,58 @@
-# Wesley Lomax Blog - Gatsby + Netlify CMS
+# blog.wesleylomax.co.uk
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/3d2b760d-ea0e-483a-abaa-977f155c6531/deploy-status)](https://app.netlify.com/sites/optimistic-shockley-92b4e9/deploys)
+Personal blog of **Wesley Lomax** — a Sitecore, technology and .NET blog.
 
-Uses [Gatsby v2](https://www.gatsbyjs.org/blog/2018-09-17-gatsby-v2/).
+Built with [Astro](https://astro.build/). Content lives as Markdown in
+`src/content/blog/` and is deployed to Netlify.
 
+## Develop
 
-
-It follows the [JAMstack architecture](https://jamstack.org) by using Git as a single source of truth, and [Netlify](https://www.netlify.com) for continuous deployment, and CDN distribution.
-
-
-## Prerequisites
-
-- Node (I recommend using v8.2.0 or higher)
-- [Gatsby CLI](https://www.gatsbyjs.org/docs/)
-
-## Getting Started
-
-### Access Locally
-```
-$ git clone https://github.com/[GITHUB_USERNAME]/[REPO_NAME].git
-$ cd [REPO_NAME]
-$ yarn
-$ npm run start
-```
-To test the CMS locally, you'll need run a production build of the site:
-```
-$ npm run build
-$ npm run serve
+```bash
+npm install
+npm run dev      # local dev server at http://localhost:4321
 ```
 
-## Getting Started (Without Netlify)
-```
-$ gatsby new [SITE_DIRECTORY_NAME] https://github.com/netlify-templates/gatsby-starter-netlify-cms/
-$ cd [SITE_DIRECTORY_NAME]
-$ npm run build
-$ npm run serve
-```
+## Build
 
-### Setting up the CMS
-Follow the [Netlify CMS Quick Start Guide](https://www.netlifycms.org/docs/quick-start/#authentication) to set up authentication, and hosting.
-
-## Debugging
-Windows users might encounter ```node-gyp``` errors when trying to npm install.
-To resolve, make sure that you have both Python 2.7 and the Visual C++ build environment installed.
-```
-npm config set python python2.7
-npm install --global --production windows-build-tools
+```bash
+npm run build    # output to ./dist
+npm run preview  # preview the production build locally
 ```
 
-[Full details here](https://www.npmjs.com/package/node-gyp 'NPM node-gyp page')
+## Writing a post
 
-## Purgecss
-This plugin uses [gatsby-plugin-purgecss](https://www.gatsbyjs.org/packages/gatsby-plugin-purgecss/) and [bulma](https://bulma.io/). The bulma builds are usually ~170K but reduced 90% by purgecss.
+Add a Markdown file to `src/content/blog/`. The file name becomes the URL slug
+(`/posts/<file-name>/`), so keep the date-prefixed naming convention. Frontmatter:
+
+```yaml
+---
+title: My post title
+date: 2026-01-15
+description: A one-line summary used for previews and SEO.
+featuredimage: /img/some-image.png   # optional, lives in public/img
+tags:
+  - Sitecore
+  - .NET
+---
+```
+
+## Structure
+
+| Path | Purpose |
+| --- | --- |
+| `src/content/blog/` | Markdown posts |
+| `src/pages/` | Routes (home, posts, tags, about, contact, RSS, 404) |
+| `src/layouts/` | Page + blog-post layouts |
+| `src/components/` | Header, footer, cards, etc. |
+| `src/styles/global.css` | Design tokens + base styles (light/dark) |
+| `public/` | Static assets served as-is (`/img`, `/wp-content`, `_redirects`) |
+
+## URLs & redirects
+
+Original post URLs (`/posts/<slug>/`), tag URLs (`/tags/<slug>/`) and the RSS
+feed (`/rss.xml`) are preserved. Legacy WordPress paths are handled by
+`public/_redirects`.
+
+## License
+
+[MIT](LICENSE)
