@@ -1,7 +1,7 @@
 ---
-title: "PCI DSS v4.0.1 is fully enforced now — here's where Azure estates actually fail it"
+title: "PCI DSS v4.0.1 on Azure – three places I keep seeing estates fail their audit"
 date: 2026-09-10T09:00:00.000Z
-description: "The future-dated PCI DSS v4.0.1 requirements stopped being 'best practice' 18 months ago. Three places Azure estates quietly fail an audit — network segmentation, log retention and key rotation — and the exact config that fixes each."
+description: "PCI DSS v4.0.1 has been fully enforced for a while now. These are the three things I keep finding on regulated Azure estates that fail an audit – network segmentation, log retention and key rotation – and how I deal with each one in Azure."
 featuredpost: true
 author: Wesley Lomax
 tags:
@@ -14,24 +14,24 @@ categories:
   - Azure
 ---
 
-If you're still treating PCI DSS v4.0.1 as something you're "getting ready for," you've missed the point at which it mattered. v4.0 fully superseded v3.2.1 in March 2024, and the future-dated requirements — the ones marked *best practice until 31 March 2025* — became mandatory over 18 months ago. v4.0.1 (the clarifying revision) is the version your QSA is assessing against today. There is no runway left.
+I've spent most of the last couple of years working on regulated Azure estates, and PCI DSS comes up in nearly every conversation I have. v4.0.1 is the version being assessed against now. v4.0 replaced v3.2.1 back in March 2024, and the requirements that were marked "best practice until 31 March 2025" have been mandatory for about eighteen months. So this isn't really a question of getting ready any more, it's a question of what your next audit is going to turn up.
 
-So this isn't a "get ready in time" post. It's a "your next audit" post. And in my experience the estates that fail don't fail on exotic requirements — they fail on three unglamorous things that are easy to leave in a default state and easy for an auditor to check. Here they are, with the Azure config that actually satisfies each.
+In my experience the estates that struggle don't struggle with the exotic stuff. They come unstuck on three fairly mundane things that are easy to leave sitting on their defaults, and just as easy for an assessor to check. I'll go through each one and the Azure config I use to deal with it.
 
-A useful thing to notice up front: every one of these is *also* a cost or waste problem, not just a compliance one. That's not a coincidence. Most compliance gaps and most cloud waste live in the same misconfigured corner of the estate.
+One thing worth saying up front: every one of these costs you money as well as failing an audit. That keeps happening, and it's not a coincidence. Most of the compliance gaps and most of the cloud waste I find live in the same badly configured corner of the estate.
 
-## 1. Network segmentation that isn't actually segmenting
+## Network segmentation that isn't really segmenting
 
-**The requirement.** PCI DSS Requirement 1 wants network security controls between the cardholder data environment (CDE) and everything out of scope. If you use segmentation to reduce scope — and on Azure almost everyone does — Requirement 11.4.5 also says you have to *penetration test the segmentation controls at least every 12 months* (every six months if you're a service provider). Segmentation you can't prove is segmentation you don't have.
+Requirement 1 wants network security controls sitting between the cardholder data environment and everything that's out of scope. If you're using segmentation to keep things out of scope, and on Azure almost everyone is, then 11.4.5 also says you have to pen test those segmentation controls at least once a year, or every six months if you're a service provider. Segmentation you can't demonstrate isn't really doing anything for you.
 
-**Where estates fail.** The single most common one: relying on subnets and NSGs *without an explicit deny*, inside a shared VNet. Every NSG ships with default rules, and one of them — `AllowVnetInBound`, priority 65000 — permits all traffic between anything in the same VNet (and peered VNets). So two subnets you *think* are segmented can talk freely, because nothing overrides that default. "It's in its own subnet" is not segmentation. The default rule is.
+The one I see most often is an estate relying on subnets and NSGs with no explicit deny, all sitting in a shared VNet. The bit people forget is that every NSG comes with a default rule, `AllowVnetInBound` at priority 65000, that lets everything inside the VNet (and any peered VNets) talk to everything else. So you can have two subnets you're convinced are separated when they're not, because nothing you've written overrides that default. Putting a workload in its own subnet doesn't segment it. The default rule is still doing the talking.
 
-The second: allow rules with a source of `*`, `0.0.0.0/0`, or the `Internet` service tag, usually left over from "let's just get it working" during a migration.
+The other one is an allow rule with a source of `*`, `0.0.0.0/0` or the `Internet` service tag, usually left behind after a migration when someone just wanted the thing working.
 
-**The config that fixes it.** Put the CDE behind an explicit deny baseline and open only what's required, from named sources:
+The way I deal with it is to put an explicit deny in front of the CDE and then only open what's actually needed, from named sources:
 
 ```bash
-# Explicit deny baseline — overrides the default AllowVnetInBound
+# Explicit deny baseline – this is what overrides the default AllowVnetInBound
 az network nsg rule create \
   --resource-group rg-cde-prod --nsg-name nsg-cde-app \
   --name deny-all-inbound --priority 4096 \
@@ -39,7 +39,7 @@ az network nsg rule create \
   --source-address-prefixes '*' --destination-address-prefixes '*' \
   --destination-port-ranges '*'
 
-# Then allow only 443, only from the App Gateway subnet
+# Then allow 443 only, and only from the App Gateway subnet
 az network nsg rule create \
   --resource-group rg-cde-prod --nsg-name nsg-cde-app \
   --name allow-https-from-appgw --priority 200 \
@@ -48,9 +48,9 @@ az network nsg rule create \
   --destination-address-prefixes '*' --destination-port-ranges 443
 ```
 
-Use Application Security Groups to express "these workloads" instead of hard-coding IP ranges you'll forget to maintain, and turn on NSG flow logs — you'll want them for Requirement 10 anyway, and they're what a segmentation pen test reads to confirm the deny is real.
+I tend to use Application Security Groups rather than hard-coding IP ranges I'll only forget to maintain, and I turn NSG flow logs on. You'll want them for Requirement 10 anyway, and they're what a segmentation pen test actually reads to confirm the deny is doing its job.
 
-You can find the internet-open holes across the whole estate in one Azure Resource Graph query (it's KQL — the same language as Log Analytics):
+If you want to find the internet-facing holes across a whole estate, this Azure Resource Graph query does it. It's KQL, the same language as Log Analytics:
 
 ```kusto
 resources
@@ -64,31 +64,31 @@ resources
           resourceGroup, subscriptionId
 ```
 
-## 2. Log retention that quietly stops at 30 days
+## Log retention that quietly stops at 30 days
 
-**The requirement.** Requirement 10.5.1 is specific and unforgiving: retain audit log history for **at least 12 months**, with **at least the most recent three months immediately available** for analysis.
+This one catches people out because of a couple of defaults that don't line up with what PCI is asking for. 10.5.1 wants at least twelve months of audit history, with the most recent three months available to query straight away.
 
-**Where estates fail.** A Log Analytics workspace defaults to a short interactive retention, and Microsoft Entra ID keeps sign-in and audit logs for only **30 days** in the directory itself. So two things go wrong: the workspace retention is left at the default and never reaches 12 months, and — the one auditors love to catch — the Entra sign-in logs that prove *who accessed the CDE* were never routed anywhere, so they're gone after a month. You cannot produce 12 months of the exact records that demonstrate access control.
+A Log Analytics workspace doesn't keep logs anywhere near that long by default, and Microsoft Entra ID only holds sign-in and audit logs for 30 days in the directory itself. So this goes wrong in two ways. The workspace retention never gets bumped up to twelve months, and, the one I see catch teams out most often, nobody ever routed the Entra sign-in logs anywhere, so the records that show who actually got into the CDE are gone after a month. When the assessor asks for twelve months of those, there's nothing to hand over.
 
-**The config that fixes it.** Split it the way the requirement is written — interactive retention for the "immediately available" three months, archive tier for the long tail:
+I set it up the way the requirement is written, with interactive retention covering the three months you need to hand and archive covering the rest:
 
 ```bash
-# 90 days immediately queryable (the "most recent 3 months")
+# 90 days immediately queryable – the "most recent three months"
 az monitor log-analytics workspace update \
   --resource-group rg-monitoring --workspace-name law-central \
   --retention-time 90
 
-# Per table: keep SigninLogs 90 days hot, 400 days total (> 12 months)
+# Per table: 90 days hot, 400 days total retention (comfortably over 12 months)
 az monitor log-analytics workspace table update \
   --resource-group rg-monitoring --workspace-name law-central \
   --name SigninLogs --retention-time 90 --total-retention-time 400
 ```
 
-Then make sure the Entra logs actually arrive: in **Entra ID → Diagnostic settings**, stream `SignInLogs`, `AuditLogs` (and `NonInteractiveUserSignInLogs`, `ServicePrincipalSignInLogs` if in scope) to that workspace. Do the same for every in-scope resource's diagnostic settings — a subscription that isn't sending activity or resource logs is a silent 10.5.1 failure.
+Then make sure the Entra logs are actually going somewhere. Under **Entra ID → Diagnostic settings**, send `SignInLogs` and `AuditLogs` (plus the non-interactive and service principal ones if they're in scope) to the same workspace, and do the same on every in-scope resource. A subscription that isn't sending its logs is a 10.5.1 failure waiting to be found.
 
-**The cost angle.** This is the clearest example of compliance and cost being one decision. Archive tier is a fraction of the price of interactive retention. An estate that satisfies 10.5.1 by cranking *interactive* retention to 400 days everywhere is both compliant and needlessly expensive; the same estate using 90 days interactive + archive is compliant *and* cheaper. The "12 months" number isn't the lever — where those months live is.
+This is a good example of the cost point I made at the start. Archive tier is a lot cheaper than interactive retention, so if you meet the twelve months by turning interactive retention right up everywhere, you're compliant but you're paying over the odds for it. Ninety days hot plus archive gets you the same audit outcome for a fraction of the cost. The twelve-month number isn't really the lever, where those months live is.
 
-Find the workspaces that fall short:
+To find the workspaces that fall short:
 
 ```kusto
 resources
@@ -98,13 +98,13 @@ resources
 | project name, retentionDays, resourceGroup, subscriptionId
 ```
 
-## 3. Keys and secrets with no defined cryptoperiod
+## Keys and secrets with no cryptoperiod behind them
 
-**The requirement.** Requirement 3 expects keys protecting stored account data to be changed **at the end of a defined cryptoperiod** (3.6.1.2, 3.7.4). PCI doesn't hand you a number — *you* define the cryptoperiod — but an auditor will expect that period to be documented *and enforced*, not aspirational.
+Requirement 3 wants keys that protect stored account data changed at the end of a defined cryptoperiod. PCI doesn't give you a number here, you set the cryptoperiod yourself, but an assessor will want to see it written down and actually enforced rather than left as a good intention.
 
-**Where estates fail.** Key Vault makes it trivially easy to create a key or secret and never think about it again. The failures are predictable: customer-managed keys created three years ago with no rotation policy, secrets with no expiry date, and — the one that's a cost *and* risk problem at once — service principal credentials that never expire, sitting over-permissioned and unrotated. That stale, over-permissioned identity is both an access-control finding and unmonitored blast radius.
+Key Vault makes it very easy to create a key or a secret and then never look at it again, and that's usually what I find. Customer-managed keys created years ago with no rotation policy, secrets with no expiry set, and service principal credentials that never expire and are over-permissioned into the bargain. That last one is the risk-and-waste overlap again, because it's an access control finding and a piece of unmonitored blast radius at the same time.
 
-**The config that fixes it.** Set an actual rotation policy on the keys, so rotation is a property of the vault and not a calendar reminder someone owns:
+I'd rather rotation was a property of the vault than a reminder in someone's calendar, so I set a policy on the key itself:
 
 ```bash
 az keyvault key rotation-policy update \
@@ -120,12 +120,12 @@ az keyvault key rotation-policy update \
   }'
 ```
 
-For secrets, always set `expires` and alert before expiry. But the strongest control here is to have *nothing to rotate*: prefer **managed identities** over service-principal secrets wherever the integration supports them. A secret that doesn't exist can't drift past its cryptoperiod, can't leak, and can't show up as a finding — the cheapest control is the one you deleted.
+For secrets, set an expiry and alert before it's reached. Honestly though, the best thing you can do here is arrange it so there's nothing to rotate in the first place. Use managed identities instead of service principal secrets wherever the integration supports it. A secret that doesn't exist can't drift past its cryptoperiod, and it can't leak.
 
-## The through-line
+## Pulling it together
 
-None of this is advanced. It's a deny rule you didn't add, a retention setting you didn't change, and a rotation policy you didn't set — each left in a default state that reads as "waste" to finance and "finding" to a QSA at the same time. That's the whole thesis of how I work: on a regulated Azure estate, the compliance review and the cost review are usually looking at the same misconfiguration from two directions.
+None of this is clever work. It's a deny rule that never got added, a retention setting nobody changed, and a rotation policy that was never set, all left sitting on their defaults. What I keep coming back to is that on a regulated Azure estate the audit and the cloud bill are usually pointing at the same misconfiguration from different directions, and that overlap is a lot of why I find this work interesting in the first place.
 
-If your next audit is on the horizon and you're not confident these three are actually true in your estate — not documented as true, *actually* true — that's exactly the conversation I have with fintech, payments and regulated SaaS teams. [Get in touch](/contact).
+If you've got an audit on the horizon and you're not confident these three are actually true in your estate, rather than just written down as true, that's the sort of thing I help fintech, payments and regulated SaaS teams with. Feel free to [get in touch](/contact).
 
-*This is general guidance from field experience, not a substitute for a scoping conversation with your own QSA — cryptoperiods, scope boundaries and applicable requirements depend on your environment.*
+As always, this is general guidance from what I've run into in the field, not a substitute for scoping things out properly with your own QSA. Cryptoperiods, where your scope boundaries sit and which requirements actually apply all depend on your own environment.
