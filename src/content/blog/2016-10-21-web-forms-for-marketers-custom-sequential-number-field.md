@@ -247,7 +247,7 @@ The **Length** field allows you to set the number leading 0&#8217;s to add to t
 
 Finally some examples of the new Sequential Number field in action:-
 
-<img class="alignnone size-full wp-image-515" src="https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/Form-Sequence.png?resize=428%2C139" alt="form-sequence" width="428" height="139" srcset="https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/Form-Sequence.png?w=428 428w, https://i2.wp.com/blog.wesleylomax.co.uk/wp-content/uploads/2016/10/Form-Sequence.png?resize=300%2C97 300w" sizes="(max-width: 428px) 100vw, 428px" data-recalc-dims="1" />
+![form-sequence](/wp-content/uploads/2016/10/Form-Sequence.png)
 
 Multiple fields with different sequences and padding values.
 
