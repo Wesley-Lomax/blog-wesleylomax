@@ -132,8 +132,8 @@ const isActive = (href: string) =>
   .icon-btn {
     display: grid;
     place-items: center;
-    width: 2.4rem;
-    height: 2.4rem;
+    width: 2.75rem;
+    height: 2.75rem;
     border-radius: 9px;
     border: 1px solid var(--border);
     background: var(--bg-elevated);
@@ -163,7 +163,12 @@ const isActive = (href: string) =>
       gap: 0.2rem;
     }
     .nav-mobile.open { display: flex; }
-    .nav-mobile .nav-link { padding: 0.6rem 0.8rem; }
+    .nav-mobile .nav-link {
+      padding: 0.7rem 0.8rem;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+    }
   }
 </style>
 

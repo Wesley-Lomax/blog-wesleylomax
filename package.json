@@ -2,7 +2,7 @@
   "name": "blog-wesleylomax",
   "type": "module",
   "version": "2.0.0",
-  "description": "Wesley Lomax — a Sitecore, technology and .NET blog",
+  "description": "Wesley Lomax — making regulated Azure platforms compliant and affordable",
   "author": "Wesley Lomax",
   "license": "MIT",
   "scripts": {
@@ -10,7 +10,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "thumbs": "node scripts/gen-thumbs.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.2.0",

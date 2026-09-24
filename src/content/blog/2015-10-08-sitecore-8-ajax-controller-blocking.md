@@ -4,7 +4,7 @@ author: Wesley Lomax
 type: post
 featuredpost: false
 date: 2015-10-08T08:25:06.000Z
-featuredimage: /img/Ajax-Controller-Blocking-Network-Tab.png
+featuredimage: /wp-content/uploads/2015/10/Ajax-Controller-Blocking-Network-Tab.png
 categories:
   - Ajax
   - Mvc
@@ -27,7 +27,7 @@ I noticed the first call was performing as expected but subsequent calls were ex
 
 &nbsp;
 
-![Ajax Controller Blocking Network Tab](/img/Ajax-Controller-Blocking-Network-Tab.png)
+![Ajax Controller Blocking Network Tab](/wp-content/uploads/2015/10/Ajax-Controller-Blocking-Network-Tab.png)
 
 
 Investigating the issue turns out it is a common problem with being caused by Session State Blocking
