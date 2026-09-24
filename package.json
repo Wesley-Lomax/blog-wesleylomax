@@ -14,10 +14,10 @@
     "thumbs": "node scripts/gen-thumbs.mjs"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.2.0",
+    "@astrojs/mdx": "^8.0.2",
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.2.1",
-    "astro": "^5.6.0",
+    "astro": "^7.3.5",
     "sharp": "^0.33.5"
   },
   "allowScripts": {
