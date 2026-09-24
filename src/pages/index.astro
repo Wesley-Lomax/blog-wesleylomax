@@ -5,8 +5,18 @@ import { getSortedPosts, postUrl } from '../utils';
 import { SITE_DESCRIPTION } from '../consts';
 
 const posts = await getSortedPosts();
-const [featured, ...rest] = posts;
-const recent = rest.slice(0, 6);
+
+// Split current writing from the older Sitecore/.NET archive so the home page
+// leads with the Azure/compliance focus rather than the 2015–2019 back catalogue.
+const RECENT_CUTOFF = new Date('2024-01-01');
+const recent = posts.filter((p) => p.data.date >= RECENT_CUTOFF);
+const archive = posts.filter((p) => p.data.date < RECENT_CUTOFF);
+
+// Fall back to newest posts if there's no recent writing yet.
+const current = recent.length ? recent : posts;
+const [featured, ...moreRecent] = current;
+const recentGrid = moreRecent.slice(0, 3);
+const archiveShown = archive.slice(0, 3);
 ---
 
 <BaseLayout title="Wesley Lomax" description={SITE_DESCRIPTION}>
@@ -32,7 +42,7 @@ const recent = rest.slice(0, 6);
   <section class="container feed">
     <div class="feed-head">
       <h2>Latest</h2>
-      <a href="/posts" class="feed-all">View all →</a>
+      <a href="/posts" class="feed-all">All posts →</a>
     </div>
 
     <div class="grid">
@@ -50,7 +60,7 @@ const recent = rest.slice(0, 6);
         )
       }
       {
-        recent.map((post) => (
+        recentGrid.map((post) => (
           <PostCard
             url={postUrl(post)}
             title={post.data.title}
@@ -63,6 +73,36 @@ const recent = rest.slice(0, 6);
       }
     </div>
   </section>
+
+  {
+    archiveShown.length > 0 && (
+      <section class="container feed archive">
+        <div class="feed-head">
+          <div>
+            <h2>From the archive</h2>
+            <p class="feed-note">
+              Earlier writing from my Sitecore and .NET years — kept here for
+              reference.
+            </p>
+          </div>
+          <a href="/posts" class="feed-all">Browse archive →</a>
+        </div>
+
+        <div class="grid">
+          {archiveShown.map((post) => (
+            <PostCard
+              url={postUrl(post)}
+              title={post.data.title}
+              date={post.data.date}
+              description={post.data.description}
+              featuredimage={post.data.featuredimage}
+              tags={post.data.tags}
+            />
+          ))}
+        </div>
+      </section>
+    )
+  }
 </BaseLayout>
 
 <style>
@@ -84,10 +124,12 @@ const recent = rest.slice(0, 6);
     flex-wrap: wrap;
   }
   .feed { padding-top: 1rem; }
+  .feed.archive { padding-top: 2.5rem; }
   .feed-head {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    gap: 1rem;
     margin-bottom: 1.5rem;
   }
   .feed-head h2 {
@@ -103,7 +145,12 @@ const recent = rest.slice(0, 6);
     border-radius: 3px;
     background: var(--gradient);
   }
-  .feed-all { font-weight: 600; font-size: 0.95rem; }
+  .feed-note {
+    margin: 0.5rem 0 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+  .feed-all { font-weight: 600; font-size: 0.95rem; white-space: nowrap; }
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
