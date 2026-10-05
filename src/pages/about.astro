@@ -4,6 +4,14 @@ import { SOCIAL_LINKS } from '../consts';
 
 const pillars = [
   {
+    title: 'Productising managed services',
+    body: 'Turning bespoke engineering into repeatable offerings: what to standardise, what to leave custom, and how to run it with a team rather than heroes.',
+  },
+  {
+    title: 'AI automation that pays for itself',
+    body: "Where automation genuinely reduces toil or cost in cloud operations, and where it doesn't. Honest numbers and trade-offs, not hype.",
+  },
+  {
     title: 'Landing zones & platform architecture',
     body: 'Structuring an Azure estate — management groups, subscriptions, networking — so it holds up as it grows.',
   },
@@ -32,7 +40,7 @@ const pillars = [
 
 <BaseLayout
   title="About"
-  description="Wesley Lomax helps regulated fintech, payments and SaaS teams make their Azure platforms compliant and affordable."
+  description="Wesley Lomax runs the Managed Cloud team at Sitecore and writes about productising Azure services for regulated platforms: repeatable, compliant and affordable."
 >
   <div class="container prose">
     <p class="eyebrow">About</p>
@@ -41,16 +49,17 @@ const pillars = [
     <div class="about-body">
       <p>
         This blog used to be about Sitecore and .NET. It's now about the problem
-        I actually spend my days solving: making regulated Azure platforms both
-        compliant and affordable, at the same time, without pretending those are
-        two different projects.
+        I actually spend my days on: running a managed cloud team and turning
+        bespoke Azure engineering into repeatable services, for regulated
+        platforms that have to be compliant and affordable at the same time.
       </p>
       <p>
-        I can support teams once they've outgrown whoever originally built the
-        platform, or when nobody's confident their infrastructure would survive
-        an audit or a serious incident — access control, logging and network
-        architecture rebuilt to hold up under a QSA's questions and a security
-        review's, usually the same weak points causing both.
+        I run the Managed Cloud team at Sitecore. I write about productising
+        Azure services: what makes engineering repeatable, what it costs to run,
+        and which AI automations actually pay for themselves. That includes
+        access control, logging and network architecture built to hold up under
+        a QSA's questions and a security review's, usually the same weak points
+        causing both.
       </p>
       <p>
         I've been in IT since 2002 — starting as a developer, then over a decade
@@ -91,9 +100,11 @@ const pillars = [
       <p>
         If you're a platform or engineering lead at a fintech, payments or
         regulated SaaS company trying to get your Azure estate through an audit
-        without blowing the cloud budget doing it, this is written for you.
+        without blowing the cloud budget, or building the team and services to
+        run it, this is written for you.
       </p>
-      <a href="/contact" class="btn btn-primary">Work with me</a>
+      <a href="/contact" class="btn btn-primary">Get in touch</a>
+      <p class="cta-disclaimer">Views here are my own and not those of my employer.</p>
     </div>
   </div>
 </BaseLayout>
@@ -135,4 +146,9 @@ const pillars = [
     background: var(--bg-subtle);
   }
   .cta p { margin: 0 0 1.25rem; font-size: 1.05rem; }
+  .cta .cta-disclaimer {
+    margin: 1rem 0 0;
+    font-size: 0.85rem;
+    color: var(--text-faint);
+  }
 </style>
