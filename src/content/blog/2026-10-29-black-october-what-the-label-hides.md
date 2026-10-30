@@ -20,13 +20,13 @@ Start with the name itself. It comes from a post on X in the early hours of 22 O
 
 ## What's actually confirmed
 
-* PHP2Shell (the name that stuck) – two remote code execution flaws in PHP core, CVE-2026-109618 and CVE-2026-109619, both CVSS 9.2 and exploitable before authentication. Exploits were in use from 21 October and a public tool showed up quickly. Demonstrated against WordPress, Drupal and Joomla. Every PHP version since 5.4 is affected, and one estimate put around 70% of websites at risk.
-* GitLab CVE-2026-110264 – unauthenticated RCE through a crafted Org-mode file, CVSS 10, versions back to 7.0.
-* [LiteLLM 1.107.0](https://docs.litellm.ai/blog/security-incident-oct-21-2026) – the release pipeline was compromised. Malicious PyPI wheels were live for a little under two hours and the container tags for longer. The payload stole credentials and loaded a remote access tool. Their own incident report has the timeline.
-* Railway and Zeabur – hosting platforms where developers keep environment variables, which is why these two matter more than they look. Railway confirmed attackers reached and partly decrypted customer secrets. Zeabur's second breach in two months exposed 3.2 million environment variable records across 321,810 accounts. Zeabur is shutting the platform down on 31 December.
-* ConnectWise Cloud Backup, formerly SkyKick – an application credential was used to sign into Microsoft 365 tenants. Aimed at MSPs and, through them, at their customers.
-* eMudhra – eight intermediate certificate authority keys turned out to be cryptographically weak. One of them had a key value of 4.
-* A Node.js security release, a trojanised Rank Math PRO plugin, Cisco Expressway, Arista VeloCloud, and a group of [CISA KEV](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) additions including Ivanti, PAN-OS, BeyondTrust, Plex, SiteGuard and Siemens. Several of those need forensic triage, which means hunting for evidence that someone was already in, not just patching.
+- **[PHP2Shell](https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching)** – two remote code execution flaws in PHP core, CVE-2026-109618 and CVE-2026-109619, both CVSS 9.2 and exploitable before authentication. Exploits were in use from 21 October and a public tool showed up quickly. Demonstrated against WordPress, Drupal and Joomla. Every PHP version since 5.4 is affected, and one estimate put around 70% of websites at risk. CISA added both to its KEV catalogue on 26 October.
+- **GitLab** [CVE-2026-110264](https://docs.gitlab.com/releases/patches/patch-release-gitlab-19-5-1-released/) – an integer overflow in the regular expression compiler, reachable through a crafted Org-mode file. Unauthenticated RCE, CVSS 10, versions back to 7.0.
+- **[LiteLLM 1.107.0](https://docs.litellm.ai/blog/security-incident-oct-21-2026)** – the release pipeline was compromised. Malicious PyPI wheels were live for a little under two hours and the container tags for longer. The payload stole credentials and loaded a remote access tool. Their own incident report has the timeline.
+- **[Railway](https://blog.railway.com/p/security-disclosure-wednesday-october-21st) and [Zeabur](https://zeabur.com/blogs/october-2026-security-incident)** – hosting platforms where developers keep environment variables, which is why these two matter more than they look. Railway confirmed attackers reached and partly decrypted customer secrets. Zeabur's second breach in two months exposed 3.2 million environment variable records across 321,810 accounts. It closes on 31 December.
+- **[ConnectWise Cloud Backup](https://www.connectwise.com/company/trust/advisories)**, formerly SkyKick – an application credential was used to sign into Microsoft 365 tenants with no user involved, so MFA was never in the path. Aimed at MSPs and, through them, at their customers.
+- **[eMudhra](https://emudhra.com/en/post/certificate-security-incident/)** – eight intermediate certificate authority keys turned out to be cryptographically weak. One of them had a key value of 4.
+- A Node.js security release, a trojanised Rank Math PRO plugin, Cisco Expressway, Arista VeloCloud, and a group of [CISA KEV](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) additions including Ivanti, PAN-OS, BeyondTrust, Plex, SiteGuard and Siemens. Several of those need forensic triage, which means hunting for evidence that someone was already in, not just patching.
 
 ## Two things the coverage got wrong
 
@@ -38,7 +38,7 @@ The second is that some of the more alarming claims have nothing behind them. Th
 
 ## The part that will actually cost you money
 
-Four of the incidents above are the same incident. A platform was holding a secret, and somebody else read it. Railway, Zeabur, LiteLLM, and the ConnectWise case.
+Six of the week's incidents share one shape: a platform was holding a secret, and somebody else read it. Railway, Zeabur, TiDB Cloud, OpenCode Console, LiteLLM, and the ConnectWise case.
 
 Patching does nothing for a key that's already left. I think that's the failure mode people are underestimating at the moment, partly because it doesn't look like a vulnerability. It looks like a vendor you chose.
 
@@ -77,10 +77,10 @@ The engineering side of last week isn't the hard part. What a week like that ask
 
 Over the next few weeks I'm going to work through four of those questions properly, one at a time, with the config and the queries rather than the theory:
 
-* Web application patching, and the gap between a thing being patched and a thing running the patched version
-* Ingress and egress control, particularly the outbound half, which is where October's supply chain incidents actually happened
-* Certificate and credential rotation, from trust stores through to Key Vault
-* Management, auditability and rotation, which is what makes the other three provable rather than asserted
+- **Web application patching**, and the gap between a thing being patched and a thing running the patched version
+- **Ingress and egress control**, particularly the outbound half, which is where October's supply chain incidents actually happened
+- **Certificate and credential rotation**, from trust stores through to Key Vault
+- **Management, auditability and rotation**, which is what makes the other three provable rather than asserted
 
 If any of that sounds like your estate, follow along, or [get in touch](/contact) if you'd rather not wait for me to get to it.
 
